@@ -1,0 +1,3489 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BÀI 22: KIỂU DỮ LIỆU DANH SÁCH - SGK Tin học 10 Kết nối tri thức</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Source+Code+Pro:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner">
+                <div class="spinner"></div>
+            </div>
+            <div class="loading-text">
+                <h3>Đang tải Bài 22: Kiểu Dữ Liệu Danh Sách</h3>
+                <p>SGK Tin học 10 - Kết nối tri thức với cuộc sống</p>
+                <div class="loading-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <div class="logo-text">
+                        <span class="logo-title">BÀI 22</span>
+                        <span class="logo-subtitle">Kiểu Dữ Liệu Danh Sách</span>
+                    </div>
+                </div>
+                <div class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#intro" class="nav-link active"><i class="fas fa-home"></i> <span>Mở Đầu</span></a></li>
+                <li><a href="#part1" class="nav-link"><i class="fas fa-layer-group"></i> <span>I. Kiểu Danh Sách</span></a></li>
+                <li><a href="#part2" class="nav-link"><i class="fas fa-sitemap"></i> <span>II. Duyệt Phần Tử</span></a></li>
+                <li><a href="#part3" class="nav-link"><i class="fas fa-plus-circle"></i> <span>III. Thêm Phần Tử</span></a></li>
+                <li><a href="#part4" class="nav-link"><i class="fas fa-laptop-code"></i> <span>IV. Thực Hành</span></a></li>
+                <li><a href="#part5" class="nav-link"><i class="fas fa-chart-bar"></i> <span>V. Tổng Kết</span></a></li>
+                <li class="nav-actions">
+                    <button class="btn-theme" id="themeToggle" title="Đổi giao diện">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="btn-print" id="printBtn" title="In trang">
+                        <i class="fas fa-print"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Progress Indicator -->
+    <div class="progress-indicator">
+        <div class="progress-track" id="progressTrack"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header Section -->
+        <header class="hero-section" id="intro">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-badge animate__animated animate__fadeInDown">
+                        <span>SGK Tin học 10</span>
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h1 class="hero-title animate__animated animate__fadeInUp animate__delay-1s">
+                        BÀI 22: <span class="highlight">KIỂU DỮ LIỆU DANH SÁCH</span>
+                    </h1>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp animate__delay-2s">
+                        Kết nối tri thức với cuộc sống - Thuyết trình bằng Web tương tác
+                    </p>
+                    
+                    <div class="team-section animate__animated animate__fadeInUp animate__delay-3s">
+                        <div class="team-header">
+                            <i class="fas fa-users"></i>
+                            <h3>Nhóm Thực Hiện</h3>
+                        </div>
+                        <div class="team-grid">
+                            <div class="team-member lead">
+                                <div class="member-avatar">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h4>Trần Huy Vũ</h4>
+                                    <p class="role">Trưởng nhóm</p>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h4>Cao Chí Lâm</h4>
+                                    <p class="role">Thành viên</p>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h4>Bùi Hồng Phúc</h4>
+                                    <p class="role">Thành viên</p>
+                                </div>
+                            </div>
+                            <div class="team-member">
+                                <div class="member-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="member-info">
+                                    <h4>Lê Quang Minh</h4>
+                                    <p class="role">Thành viên</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-cta animate__animated animate__fadeInUp animate__delay-4s">
+                        <a href="#part1" class="btn-primary btn-scroll">
+                            <span>Bắt Đầu Bài Học</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <button class="btn-secondary" id="introVideoBtn">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Xem Giới Thiệu</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-wave">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+                </svg>
+            </div>
+        </header>
+
+        <!-- Introduction Video Modal -->
+        <div id="introModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Giới Thiệu Bài Học</h3>
+                    <button class="modal-close" id="modalClose">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                        <p>Video giới thiệu về tầm quan trọng của kiểu dữ liệu danh sách</p>
+                    </div>
+                    <div class="modal-text">
+                        <h4>Tại sao cần học về Danh sách?</h4>
+                        <p>Trong lập trình, việc xử lý nhiều dữ liệu cùng lúc là nhu cầu thường xuyên. Danh sách (List) là cấu trúc dữ liệu cơ bản nhất và quan trọng nhất trong Python giúp giải quyết vấn đề này.</p>
+                        <ul>
+                            <li><strong>Ứng dụng thực tế:</strong> Quản lý học sinh, xử lý điểm số, lưu trữ sản phẩm...</li>
+                            <li><strong>Nền tảng:</strong> Cho các cấu trúc dữ liệu phức tạp hơn</li>
+                            <li><strong>Thiết thực:</strong> Áp dụng trong hầu hết dự án lập trình</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part 1: Kiểu Dữ Liệu Danh Sách -->
+        <section id="part1" class="section part-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">
+                        <span>I</span>
+                    </div>
+                    <div class="section-title">
+                        <h2><i class="fas fa-layer-group"></i> Kiểu Dữ Liệu Danh Sách</h2>
+                        <p class="section-description">Hiểu bản chất và cách sử dụng danh sách trong Python</p>
+                    </div>
+                </div>
+
+                <!-- Bài Toán Thực Tế -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">1.1</span> Bài Toán Thực Tế</h3>
+                        <div class="subsection-badge problem">Vấn đề</div>
+                    </div>
+                    <div class="problem-scenario">
+                        <div class="scenario-card">
+                            <div class="scenario-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            <div class="scenario-content">
+                                <h4>Tình huống: Quản lý lớp học 10A</h4>
+                                <p>Lớp 10A có 35 học sinh. Là lớp trưởng, bạn cần:</p>
+                                <div class="requirements">
+                                    <div class="requirement">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Lưu trữ điểm 8 môn học của từng học sinh</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Theo dõi danh sách học sinh tham gia CLB</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Quản lý thông tin liên lạc của phụ huynh</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Cập nhật khi có học sinh chuyển đến/đi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="code-comparison">
+                            <div class="comparison-title">
+                                <h5>Cách làm KHÔNG hiệu quả:</h5>
+                            </div>
+                            <div class="comparison-grid">
+                                <div class="bad-approach">
+                                    <div class="approach-header">
+                                        <i class="fas fa-times-circle"></i>
+                                        <span>Sử dụng biến riêng lẻ</span>
+                                    </div>
+                                    <pre><code class="python"># Cần 35 biến cho 35 học sinh
+ten_hs1 = "Nguyễn Văn A"
+ten_hs2 = "Trần Thị B"
+ten_hs3 = "Lê Văn C"
+# ... tiếp tục đến ten_hs35
+
+# Cần 35×8 = 280 biến cho điểm số
+diem_toan_hs1 = 8.5
+diem_van_hs1 = 7.0
+# ... rất nhiều biến khác
+
+# Tính điểm trung bình lớp:
+tb_lop = (diem_toan_hs1 + diem_van_hs1 + ... + diem_toan_hs35) / 280
+# RẤT PHỨC TẠP VÀ DỄ SAI!</code></pre>
+                                </div>
+                                <div class="comparison-arrow">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
+                                <div class="good-approach">
+                                    <div class="approach-header">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Cần một giải pháp tốt hơn</span>
+                                    </div>
+                                    <div class="approach-content">
+                                        <p>Chúng ta cần một cấu trúc dữ liệu có thể:</p>
+                                        <ul>
+                                            <li>Lưu trữ nhiều giá trị trong một biến</li>
+                                            <li>Truy cập dễ dàng từng phần tử</li>
+                                            <li>Thay đổi linh hoạt số lượng phần tử</li>
+                                            <li>Xử lý hàng loạt các phần tử</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rút Ra Khái Niệm -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">1.2</span> Khái Niệm Danh Sách</h3>
+                        <div class="subsection-badge concept">Lý thuyết</div>
+                    </div>
+                    
+                    <div class="definition-card">
+                        <div class="definition-header">
+                            <div class="definition-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="definition-source">
+                                <span>Trích dẫn từ SGK Tin học 10 - Kết nối tri thức:</span>
+                            </div>
+                        </div>
+                        <div class="definition-content">
+                            <blockquote>
+                                "Danh sách (List) là một kiểu dữ liệu có cấu trúc trong Python, 
+                                dùng để lưu trữ một tập hợp các phần tử theo một thứ tự xác định. 
+                                Các phần tử được đặt trong cặp dấu ngoặc vuông [] và phân cách nhau bởi dấu phẩy."
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="concept-details">
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Cú Pháp Cơ Bản</h4>
+                            <pre><code class="python"># Danh sách rỗng
+danh_sach_rong = []
+
+# Danh sách số nguyên
+diem_so = [8, 7, 9, 6, 8, 10, 7, 9]
+
+# Danh sách chuỗi
+ten_hoc_sinh = ["An", "Bình", "Châu", "Dũng"]
+
+# Danh sách hỗn hợp
+hoan_hop = [1, "hello", 3.14, True, [1, 2, 3]]
+
+# Danh sách lồng nhau (2D)
+bang_diem = [
+    [8, 7, 9],    # Điểm của An
+    [7, 8, 6],    # Điểm của Bình
+    [9, 9, 10]    # Điểm của Châu
+]</code></pre>
+                        </div>
+                        
+                        <div class="detail-card">
+                            <div class="detail-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4>Đặc Điểm Quan Trọng</h4>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-sort-amount-down"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>Có thứ tự (Ordered)</h5>
+                                        <p>Phần tử giữ đúng vị trí khi thêm vào</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>Có thể thay đổi (Mutable)</h5>
+                                        <p>Nội dung có thể sửa đổi sau khi tạo</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-random"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>Hỗn hợp kiểu</h5>
+                                        <p>Chứa nhiều kiểu dữ liệu khác nhau</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-expand-arrows-alt"></i>
+                                    </div>
+                                    <div class="feature-content">
+                                        <h5>Động (Dynamic)</h5>
+                                        <p>Tự thay đổi kích thước khi cần</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Interactive Demo: Create List -->
+                    <div class="interactive-demo">
+                        <div class="demo-header">
+                            <h4><i class="fas fa-play-circle"></i> Thử Tạo Danh Sách</h4>
+                            <p>Tương tác để hiểu rõ cách khởi tạo danh sách</p>
+                        </div>
+                        <div class="demo-body">
+                            <div class="demo-controls">
+                                <div class="input-group">
+                                    <label for="listType">Chọn kiểu danh sách:</label>
+                                    <select id="listType" class="form-control">
+                                        <option value="numbers">Số nguyên</option>
+                                        <option value="strings">Chuỗi ký tự</option>
+                                        <option value="mixed">Hỗn hợp</option>
+                                        <option value="nested">Danh sách lồng nhau</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label for="listValues">Nhập giá trị (cách nhau bằng dấu phẩy):</label>
+                                    <input type="text" id="listValues" class="form-control" 
+                                           placeholder="Ví dụ: 1, 2, 3, 4, 5" 
+                                           value="10, 20, 30, 40, 50">
+                                </div>
+                                <button id="createListBtn" class="btn-demo">
+                                    <i class="fas fa-magic"></i> Tạo Danh Sách
+                                </button>
+                            </div>
+                            <div class="demo-result">
+                                <div class="result-header">
+                                    <h5>Kết quả:</h5>
+                                    <button id="copyCodeBtn" class="btn-copy" title="Sao chép code">
+                                        <i class="far fa-copy"></i>
+                                    </button>
+                                </div>
+                                <div class="result-content">
+                                    <pre id="listResult"><code class="python"># Danh sách của bạn sẽ xuất hiện ở đây
+# Ví dụ: [1, 2, 3, 4, 5]</code></pre>
+                                </div>
+                                <div class="result-info" id="listInfo">
+                                    Nhập giá trị và nhấn "Tạo Danh Sách" để xem kết quả
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở Rộng Vấn Đề -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">1.3</span> Mở Rộng Vấn Đề</h3>
+                        <div class="subsection-badge advanced">Nâng cao</div>
+                    </div>
+                    
+                    <div class="expansion-content">
+                        <!-- Chỉ Mục (Indexing) -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-list-ol"></i>
+                                </div>
+                                <h4>Chỉ Mục (Indexing) Trong Danh Sách</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <p>Mỗi phần tử trong danh sách có một <strong>chỉ số (index)</strong> duy nhất để xác định vị trí của nó.</p>
+                                
+                                <div class="index-visualization">
+                                    <div class="visual-title">
+                                        <h5>Hệ Thống Chỉ Số Hai Chiều</h5>
+                                    </div>
+                                    <div class="index-grid">
+                                        <!-- Chỉ số dương -->
+                                        <div class="index-section">
+                                            <div class="section-title positive">
+                                                <i class="fas fa-arrow-right"></i>
+                                                <span>Chỉ Số Dương (Từ trái sang phải)</span>
+                                            </div>
+                                            <div class="index-items">
+                                                <div class="index-item" data-index="0">
+                                                    <div class="index-label">0</div>
+                                                    <div class="item-value">"An"</div>
+                                                </div>
+                                                <div class="index-item" data-index="1">
+                                                    <div class="index-label">1</div>
+                                                    <div class="item-value">"Bình"</div>
+                                                </div>
+                                                <div class="index-item" data-index="2">
+                                                    <div class="index-label">2</div>
+                                                    <div class="item-value">"Châu"</div>
+                                                </div>
+                                                <div class="index-item" data-index="3">
+                                                    <div class="index-label">3</div>
+                                                    <div class="item-value">"Dũng"</div>
+                                                </div>
+                                                <div class="index-item" data-index="4">
+                                                    <div class="index-label">4</div>
+                                                    <div class="item-value">"Em"</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Chỉ số âm -->
+                                        <div class="index-section">
+                                            <div class="section-title negative">
+                                                <i class="fas fa-arrow-left"></i>
+                                                <span>Chỉ Số Âm (Từ phải sang trái)</span>
+                                            </div>
+                                            <div class="index-items">
+                                                <div class="index-item" data-index="-5">
+                                                    <div class="index-label">-5</div>
+                                                    <div class="item-value">"An"</div>
+                                                </div>
+                                                <div class="index-item" data-index="-4">
+                                                    <div class="index-label">-4</div>
+                                                    <div class="item-value">"Bình"</div>
+                                                </div>
+                                                <div class="index-item" data-index="-3">
+                                                    <div class="index-label">-3</div>
+                                                    <div class="item-value">"Châu"</div>
+                                                </div>
+                                                <div class="index-item" data-index="-2">
+                                                    <div class="index-label">-2</div>
+                                                    <div class="item-value">"Dũng"</div>
+                                                </div>
+                                                <div class="index-item" data-index="-1">
+                                                    <div class="index-label">-1</div>
+                                                    <div class="item-value">"Em"</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="code-demo">
+                                    <div class="demo-title">
+                                        <h5>Truy Cập Phần Tử Qua Chỉ Số</h5>
+                                    </div>
+                                    <div class="demo-grid">
+                                        <div class="demo-code">
+                                            <pre><code class="python">ten = ["An", "Bình", "Châu", "Dũng", "Em"]
+
+# Truy cập bằng chỉ số dương
+print(ten[0])   # "An" - phần tử đầu tiên
+print(ten[2])   # "Châu" - phần tử thứ ba
+
+# Truy cập bằng chỉ số âm
+print(ten[-1])  # "Em" - phần tử cuối cùng
+print(ten[-3])  # "Châu" - phần tử thứ ba từ cuối
+
+# Thay đổi giá trị phần tử
+ten[1] = "Bình Nguyên"
+print(ten)      # ["An", "Bình Nguyên", "Châu", "Dũng", "Em"]
+
+# Lỗi thường gặp: IndexError
+# print(ten[10])  # Lỗi! Vượt quá độ dài danh sách</code></pre>
+                                        </div>
+                                        <div class="demo-interactive">
+                                            <div class="interactive-controls">
+                                                <div class="input-group">
+                                                    <label for="accessIndex">Nhập chỉ số:</label>
+                                                    <input type="number" id="accessIndex" class="form-control" 
+                                                           min="-5" max="4" value="0">
+                                                </div>
+                                                <button id="accessBtn" class="btn-interactive">
+                                                    <i class="fas fa-search"></i> Truy Cập
+                                                </button>
+                                            </div>
+                                            <div class="interactive-result">
+                                                <div class="current-list">
+                                                    <strong>Danh sách:</strong> 
+                                                    <code id="currentList">["An", "Bình", "Châu", "Dũng", "Em"]</code>
+                                                </div>
+                                                <div class="access-result" id="accessResult">
+                                                    Kết quả truy cập sẽ hiển thị ở đây
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Cắt Lát (Slicing) -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-cut"></i>
+                                </div>
+                                <h4>Cắt Lát Danh Sách (Slicing)</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <p>Slicing cho phép tạo danh sách con từ danh sách gốc với cú pháp: <code>danh_sach[start:stop:step]</code></p>
+                                
+                                <div class="slicing-demo">
+                                    <div class="slicing-controls">
+                                        <div class="control-group">
+                                            <label for="sliceStart">Start (bắt đầu):</label>
+                                            <input type="number" id="sliceStart" class="slice-input" value="1" min="0" max="9">
+                                        </div>
+                                        <div class="control-group">
+                                            <label for="sliceStop">Stop (kết thúc):</label>
+                                            <input type="number" id="sliceStop" class="slice-input" value="4" min="0" max="10">
+                                        </div>
+                                        <div class="control-group">
+                                            <label for="sliceStep">Step (bước nhảy):</label>
+                                            <input type="number" id="sliceStep" class="slice-input" value="1" min="-5" max="5">
+                                        </div>
+                                        <button id="sliceBtn" class="btn-slice">
+                                            <i class="fas fa-cut"></i> Cắt Danh Sách
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="slicing-result">
+                                        <div class="original-list">
+                                            <strong>Danh sách gốc:</strong> 
+                                            <code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code>
+                                        </div>
+                                        <div class="slice-expression">
+                                            <strong>Biểu thức cắt:</strong> 
+                                            <code id="sliceExpression">ds[1:4:1]</code>
+                                        </div>
+                                        <div class="slice-output">
+                                            <strong>Kết quả:</strong> 
+                                            <code id="sliceResult">[1, 2, 3]</code>
+                                        </div>
+                                        <div class="slice-explanation" id="sliceExplanation">
+                                            Lấy các phần tử từ chỉ số 1 đến 4 (không bao gồm 4), bước nhảy 1
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="slicing-examples">
+                                        <h5>Các Trường Hợp Đặc Biệt:</h5>
+                                        <div class="examples-grid">
+                                            <div class="example-item">
+                                                <div class="example-code">
+                                                    <code>ds[:5]</code>
+                                                </div>
+                                                <div class="example-desc">
+                                                    Lấy 5 phần tử đầu tiên
+                                                </div>
+                                            </div>
+                                            <div class="example-item">
+                                                <div class="example-code">
+                                                    <code>ds[3:]</code>
+                                                </div>
+                                                <div class="example-desc">
+                                                    Lấy từ phần tử thứ 3 đến hết
+                                                </div>
+                                            </div>
+                                            <div class="example-item">
+                                                <div class="example-code">
+                                                    <code>ds[::2]</code>
+                                                </div>
+                                                <div class="example-desc">
+                                                    Lấy phần tử cách đều (bước 2)
+                                                </div>
+                                            </div>
+                                            <div class="example-item">
+                                                <div class="example-code">
+                                                    <code>ds[::-1]</code>
+                                                </div>
+                                                <div class="example-desc">
+                                                    Đảo ngược danh sách
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 2: Duyệt Các Phần Tử Của Danh Sách -->
+        <section id="part2" class="section part-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">
+                        <span>II</span>
+                    </div>
+                    <div class="section-title">
+                        <h2><i class="fas fa-sitemap"></i> Duyệt Các Phần Tử Của Danh Sách</h2>
+                        <p class="section-description">Các phương pháp xử lý từng phần tử trong danh sách</p>
+                    </div>
+                </div>
+
+                <!-- Bài Toán Thực Tế -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">2.1</span> Bài Toán Thực Tế</h3>
+                        <div class="subsection-badge problem">Vấn đề</div>
+                    </div>
+                    
+                    <div class="problem-scenario">
+                        <div class="scenario-card">
+                            <div class="scenario-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="scenario-content">
+                                <h4>Phân tích kết quả học tập lớp 10A</h4>
+                                <p>Bạn là lớp trưởng, nhận được danh sách điểm môn Tin học:</p>
+                                
+                                <div class="data-table">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Học sinh</th>
+                                                <th>Điểm</th>
+                                                <th>Xếp loại</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><td>1</td><td>Nguyễn Văn A</td><td>8.5</td><td>Giỏi</td></tr>
+                                            <tr><td>2</td><td>Trần Thị B</td><td>7.0</td><td>Khá</td></tr>
+                                            <tr><td>3</td><td>Lê Văn C</td><td>9.0</td><td>Giỏi</td></tr>
+                                            <tr><td>4</td><td>Phạm Thị D</td><td>6.5</td><td>Trung bình</td></tr>
+                                            <tr><td>5</td><td>Hoàng Văn E</td><td>8.0</td><td>Giỏi</td></tr>
+                                            <tr><td>6</td><td>Vũ Thị F</td><td>7.5</td><td>Khá</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="requirements">
+                                    <p><strong>Yêu cầu phân tích:</strong></p>
+                                    <div class="requirement">
+                                        <i class="fas fa-calculator"></i>
+                                        <span>Tính điểm trung bình cả lớp</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-search"></i>
+                                        <span>Tìm điểm cao nhất và thấp nhất</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-filter"></i>
+                                        <span>Đếm số học sinh mỗi loại (Giỏi, Khá, TB)</span>
+                                    </div>
+                                    <div class="requirement">
+                                        <i class="fas fa-list-ol"></i>
+                                        <span>In ra danh sách học sinh xuất sắc (≥ 8.0)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="challenge-box">
+                            <div class="challenge-header">
+                                <i class="fas fa-question-circle"></i>
+                                <h5>Thách thức:</h5>
+                            </div>
+                            <div class="challenge-content">
+                                <p>Làm thế nào để xử lý <strong>tất cả 35 học sinh</strong> một cách hiệu quả?</p>
+                                <p>Chúng ta cần một phương pháp để <strong>lần lượt xử lý từng phần tử</strong> trong danh sách mà không cần viết 35 dòng code riêng biệt.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khái Niệm Duyệt Danh Sách -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">2.2</span> Khái Niệm Duyệt Danh Sách</h3>
+                        <div class="subsection-badge concept">Lý thuyết</div>
+                    </div>
+                    
+                    <div class="definition-card">
+                        <div class="definition-content">
+                            <blockquote>
+                                "Duyệt danh sách là quá trình truy cập lần lượt từng phần tử trong danh sách để thực hiện các thao tác xử lý như tính toán, kiểm tra, hoặc thay đổi giá trị."
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="concept-details">
+                        <div class="traversal-methods">
+                            <h4>Ba Phương Pháp Duyệt Danh Sách Cơ Bản</h4>
+                            
+                            <div class="methods-tabs">
+                                <div class="tab-buttons">
+                                    <button class="tab-btn active" data-tab="method1">Duyệt trực tiếp</button>
+                                    <button class="tab-btn" data-tab="method2">Duyệt qua chỉ số</button>
+                                    <button class="tab-btn" data-tab="method3">Duyệt với enumerate()</button>
+                                </div>
+                                
+                                <div class="tab-contents">
+                                    <!-- Method 1 -->
+                                    <div class="tab-content active" id="method1">
+                                        <div class="method-header">
+                                            <div class="method-icon">
+                                                <i class="fas fa-forward"></i>
+                                            </div>
+                                            <h5>1. Duyệt trực tiếp (for...in)</h5>
+                                        </div>
+                                        <div class="method-content">
+                                            <div class="method-description">
+                                                <p>Dùng khi chỉ cần giá trị phần tử, không cần chỉ số.</p>
+                                            </div>
+                                            <div class="method-code">
+                                                <pre><code class="python"># Ví dụ: Tính tổng điểm
+diem = [8.5, 7.0, 9.0, 6.5, 8.0, 7.5]
+tong = 0
+
+for diem_so in diem:
+    tong += diem_so
+
+print(f"Tổng điểm: {tong}")
+print(f"Điểm trung bình: {tong / len(diem):.2f}")</code></pre>
+                                            </div>
+                                            <div class="method-pros-cons">
+                                                <div class="pros">
+                                                    <h6><i class="fas fa-thumbs-up"></i> Ưu điểm:</h6>
+                                                    <ul>
+                                                        <li>Code đơn giản, dễ đọc</li>
+                                                        <li>Không cần quan tâm chỉ số</li>
+                                                        <li>Hiệu quả cho xử lý đơn giản</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="cons">
+                                                    <h6><i class="fas fa-thumbs-down"></i> Hạn chế:</h6>
+                                                    <ul>
+                                                        <li>Không biết vị trí phần tử</li>
+                                                        <li>Không thể thay đổi danh sách dễ dàng</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Method 2 -->
+                                    <div class="tab-content" id="method2">
+                                        <div class="method-header">
+                                            <div class="method-icon">
+                                                <i class="fas fa-list-ol"></i>
+                                            </div>
+                                            <h5>2. Duyệt qua chỉ số (for i in range)</h5>
+                                        </div>
+                                        <div class="method-content">
+                                            <div class="method-description">
+                                                <p>Dùng khi cần chỉ số để xử lý hoặc thay đổi phần tử.</p>
+                                            </div>
+                                            <div class="method-code">
+                                                <pre><code class="python"># Ví dụ: Tăng điểm cho học sinh có điểm dưới 7
+diem = [8.5, 7.0, 6.0, 6.5, 8.0, 5.5]
+
+for i in range(len(diem)):
+    if diem[i] < 7:
+        diem[i] += 0.5  # Tăng điểm
+        print(f"Học sinh {i+1}: được tăng điểm lên {diem[i]}")
+
+print(f"Danh sách điểm sau điều chỉnh: {diem}")</code></pre>
+                                            </div>
+                                            <div class="method-pros-cons">
+                                                <div class="pros">
+                                                    <h6><i class="fas fa-thumbs-up"></i> Ưu điểm:</h6>
+                                                    <ul>
+                                                        <li>Biết chính xác vị trí phần tử</li>
+                                                        <li>Có thể thay đổi giá trị phần tử</li>
+                                                        <li>Linh hoạt trong xử lý</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="cons">
+                                                    <h6><i class="fas fa-thumbs-down"></i> Hạn chế:</h6>
+                                                    <ul>
+                                                        <li>Code dài hơn</li>
+                                                        <li>Cần tính len(danh_sach) trước</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Method 3 -->
+                                    <div class="tab-content" id="method3">
+                                        <div class="method-header">
+                                            <div class="method-icon">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                            <h5>3. Duyệt với enumerate()</h5>
+                                        </div>
+                                        <div class="method-content">
+                                            <div class="method-description">
+                                                <p>Kết hợp tốt nhất - vừa có chỉ số vừa có giá trị.</p>
+                                            </div>
+                                            <div class="method-code">
+                                                <pre><code class="python"># Ví dụ: In bảng điểm có STT
+hoc_sinh = ["Nguyễn Văn A", "Trần Thị B", "Lê Văn C"]
+diem = [8.5, 7.0, 9.0]
+
+print("BẢNG ĐIỂM LỚP 10A")
+print("STT | Họ tên | Điểm | Xếp loại")
+print("-" * 40)
+
+for i, ten in enumerate(hoc_sinh, 1):
+    diem_so = diem[i-1]
+    if diem_so >= 8.0:
+        xep_loai = "Giỏi"
+    elif diem_so >= 6.5:
+        xep_loai = "Khá"
+    else:
+        xep_loai = "Trung bình"
+    
+    print(f"{i:3} | {ten:15} | {diem_so:5.1f} | {xep_loai}")</code></pre>
+                                            </div>
+                                            <div class="method-pros-cons">
+                                                <div class="pros">
+                                                    <h6><i class="fas fa-thumbs-up"></i> Ưu điểm:</h6>
+                                                    <ul>
+                                                        <li>Có cả chỉ số và giá trị</li>
+                                                        <li>Code rõ ràng, dễ bảo trì</li>
+                                                        <li>Có thể bắt đầu từ số khác 0</li>
+                                                    </ul>
+                                                </div>
+                                                <div class="cons">
+                                                    <h6><i class="fas fa-thumbs-down"></i> Hạn chế:</h6>
+                                                    <ul>
+                                                        <li>Hơi phức tạp với người mới</li>
+                                                        <li>Cần nhớ cú pháp enumerate()</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Traversal Demo -->
+                        <div class="interactive-demo">
+                            <div class="demo-header">
+                                <h4><i class="fas fa-running"></i> Mô Phỏng Duyệt Danh Sách</h4>
+                                <p>Xem trực quan cách vòng lặp duyệt qua từng phần tử</p>
+                            </div>
+                            <div class="demo-body">
+                                <div class="traversal-visualization">
+                                    <div class="visual-controls">
+                                        <div class="control-group">
+                                            <label for="traversalMethod">Chọn phương pháp:</label>
+                                            <select id="traversalMethod" class="form-control">
+                                                <option value="direct">Duyệt trực tiếp</option>
+                                                <option value="index">Duyệt qua chỉ số</option>
+                                                <option value="enumerate">Duyệt với enumerate</option>
+                                            </select>
+                                        </div>
+                                        <div class="control-group">
+                                            <label for="traversalSpeed">Tốc độ:</label>
+                                            <input type="range" id="traversalSpeed" min="100" max="2000" value="800">
+                                            <span id="speedValue">800ms</span>
+                                        </div>
+                                        <button id="startTraversal" class="btn-demo">
+                                            <i class="fas fa-play"></i> Bắt đầu mô phỏng
+                                        </button>
+                                        <button id="pauseTraversal" class="btn-demo" disabled>
+                                            <i class="fas fa-pause"></i> Tạm dừng
+                                        </button>
+                                        <button id="resetTraversal" class="btn-demo">
+                                            <i class="fas fa-redo"></i> Làm lại
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="visual-container">
+                                        <div class="list-display" id="traversalList">
+                                            <!-- List items will be generated by JS -->
+                                        </div>
+                                        <div class="traversal-info">
+                                            <div class="info-box">
+                                                <div class="info-title">Thông tin duyệt:</div>
+                                                <div id="traversalInfo">Chưa bắt đầu</div>
+                                            </div>
+                                            <div class="info-box">
+                                                <div class="info-title">Biến đếm:</div>
+                                                <div id="traversalCounts">Tổng: 0 | TB: 0.00 | Max: 0</div>
+                                            </div>
+                                            <div class="info-box">
+                                                <div class="info-title">Code tương ứng:</div>
+                                                <div id="traversalCode">Chọn phương pháp để xem code</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở Rộng và Giải Thích -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">2.3</span> Mở Rộng và Giải Thích</h3>
+                        <div class="subsection-badge advanced">Nâng cao</div>
+                    </div>
+                    
+                    <div class="expansion-content">
+                        <!-- Ứng dụng thực tế -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h4>Ứng Dụng: Phân Tích Điểm Số Lớp Học</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <div class="application-demo">
+                                    <div class="app-header">
+                                        <h5>Hệ Thống Phân Tích Điểm Số</h5>
+                                        <p>Giải quyết bài toán thực tế từ phần 2.1</p>
+                                    </div>
+                                    
+                                    <div class="app-container">
+                                        <div class="app-input">
+                                            <div class="input-section">
+                                                <label for="scoreInput">Nhập điểm (cách nhau bằng dấu phẩy):</label>
+                                                <input type="text" id="scoreInput" class="form-control" 
+                                                       value="8.5, 7.0, 9.0, 6.5, 8.0, 7.5, 9.5, 6.0, 8.5, 7.0">
+                                                <small>Nhập điểm số từ 0 đến 10</small>
+                                            </div>
+                                            <button id="analyzeScores" class="btn-app">
+                                                <i class="fas fa-chart-bar"></i> Phân tích điểm
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="app-output">
+                                            <div class="output-section">
+                                                <div class="output-title">
+                                                    <i class="fas fa-clipboard-list"></i>
+                                                    <h6>Kết quả phân tích:</h6>
+                                                </div>
+                                                <div class="output-content">
+                                                    <div class="analysis-results">
+                                                        <div class="result-item">
+                                                            <div class="result-label">Tổng số học sinh:</div>
+                                                            <div class="result-value" id="totalStudents">0</div>
+                                                        </div>
+                                                        <div class="result-item">
+                                                            <div class="result-label">Điểm trung bình lớp:</div>
+                                                            <div class="result-value" id="averageScore">0.00</div>
+                                                        </div>
+                                                        <div class="result-item">
+                                                            <div class="result-label">Điểm cao nhất:</div>
+                                                            <div class="result-value" id="maxScore">0.0</div>
+                                                        </div>
+                                                        <div class="result-item">
+                                                            <div class="result-label">Điểm thấp nhất:</div>
+                                                            <div class="result-value" id="minScore">0.0</div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="grade-distribution">
+                                                        <h6>Phân loại học sinh:</h6>
+                                                        <div class="distribution-chart">
+                                                            <div class="chart-bar">
+                                                                <div class="bar-label">Giỏi (≥ 8.0)</div>
+                                                                <div class="bar-container">
+                                                                    <div class="bar-fill" id="excellentBar" style="width: 0%"></div>
+                                                                </div>
+                                                                <div class="bar-value" id="excellentCount">0</div>
+                                                            </div>
+                                                            <div class="chart-bar">
+                                                                <div class="bar-label">Khá (6.5 - 7.9)</div>
+                                                                <div class="bar-container">
+                                                                    <div class="bar-fill" id="goodBar" style="width: 0%"></div>
+                                                                </div>
+                                                                <div class="bar-value" id="goodCount">0</div>
+                                                            </div>
+                                                            <div class="chart-bar">
+                                                                <div class="bar-label">Trung bình (&lt; 6.5)</div>
+                                                                <div class="bar-container">
+                                                                    <div class="bar-fill" id="averageBar" style="width: 0%"></div>
+                                                                </div>
+                                                                <div class="bar-value" id="averageCount">0</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="app-code">
+                                        <div class="code-title">
+                                            <h6>Code thực hiện:</h6>
+                                            <button id="showAnalysisCode" class="btn-code">
+                                                <i class="fas fa-code"></i> Xem code
+                                            </button>
+                                        </div>
+                                        <div class="code-content" id="analysisCode" style="display: none;">
+                                            <pre><code class="python">def phan_tich_diem(diem_so):
+    # Khởi tạo biến
+    tong = 0
+    cao_nhat = diem_so[0]
+    thap_nhat = diem_so[0]
+    dem_gioi = dem_kha = dem_tb = 0
+    
+    # Duyệt qua từng điểm số
+    for diem in diem_so:
+        # Tính tổng
+        tong += diem
+        
+        # Tìm điểm cao nhất/thấp nhất
+        if diem > cao_nhat:
+            cao_nhat = diem
+        if diem < thap_nhat:
+            thap_nhat = diem
+        
+        # Phân loại học sinh
+        if diem >= 8.0:
+            dem_gioi += 1
+        elif diem >= 6.5:
+            dem_kha += 1
+        else:
+            dem_tb += 1
+    
+    # Tính kết quả
+    trung_binh = tong / len(diem_so)
+    
+    # In kết quả
+    print(f"Số học sinh: {len(diem_so)}")
+    print(f"Điểm trung bình: {trung_binh:.2f}")
+    print(f"Điểm cao nhất: {cao_nhat}")
+    print(f"Điểm thấp nhất: {thap_nhat}")
+    print(f"Giỏi: {dem_gioi} | Khá: {dem_kha} | TB: {dem_tb}")
+    
+    return trung_binh, cao_nhat, thap_nhat</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Các hàm built-in với danh sách -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-toolbox"></i>
+                                </div>
+                                <h4>Các Hàm Built-in Hữu Ích</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <div class="builtin-functions">
+                                    <div class="functions-grid">
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-ruler"></i>
+                                            </div>
+                                            <h5>len()</h5>
+                                            <div class="function-desc">
+                                                <p>Trả về số lượng phần tử</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>len([1, 2, 3]) → 3</code>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-calculator"></i>
+                                            </div>
+                                            <h5>sum()</h5>
+                                            <div class="function-desc">
+                                                <p>Tính tổng các phần tử số</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>sum([1, 2, 3]) → 6</code>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-arrow-up"></i>
+                                            </div>
+                                            <h5>max()</h5>
+                                            <div class="function-desc">
+                                                <p>Tìm giá trị lớn nhất</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>max([1, 5, 3]) → 5</code>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-arrow-down"></i>
+                                            </div>
+                                            <h5>min()</h5>
+                                            <div class="function-desc">
+                                                <p>Tìm giá trị nhỏ nhất</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>min([1, 5, 3]) → 1</code>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-sort"></i>
+                                            </div>
+                                            <h5>sorted()</h5>
+                                            <div class="function-desc">
+                                                <p>Sắp xếp danh sách (tạo mới)</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>sorted([3, 1, 2]) → [1, 2, 3]</code>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="function-card">
+                                            <div class="function-icon">
+                                                <i class="fas fa-list-ol"></i>
+                                            </div>
+                                            <h5>enumerate()</h5>
+                                            <div class="function-desc">
+                                                <p>Duyệt với chỉ số và giá trị</p>
+                                            </div>
+                                            <div class="function-example">
+                                                <code>list(enumerate(['a','b'])) → [(0,'a'),(1,'b')]</code>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="function-demo">
+                                        <div class="demo-title">
+                                            <h5>Thử nghiệm các hàm:</h5>
+                                        </div>
+                                        <div class="demo-controls">
+                                            <div class="input-group">
+                                                <label for="functionTestList">Danh sách mẫu:</label>
+                                                <input type="text" id="functionTestList" class="form-control" 
+                                                       value="10, 25, 5, 40, 15, 30">
+                                            </div>
+                                            <div class="function-buttons">
+                                                <button class="btn-function" data-func="len">
+                                                    <i class="fas fa-ruler"></i> len()
+                                                </button>
+                                                <button class="btn-function" data-func="sum">
+                                                    <i class="fas fa-calculator"></i> sum()
+                                                </button>
+                                                <button class="btn-function" data-func="max">
+                                                    <i class="fas fa-arrow-up"></i> max()
+                                                </button>
+                                                <button class="btn-function" data-func="min">
+                                                    <i class="fas fa-arrow-down"></i> min()
+                                                </button>
+                                                <button class="btn-function" data-func="sorted">
+                                                    <i class="fas fa-sort"></i> sorted()
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="demo-result">
+                                            <div id="functionResult">
+                                                Chọn một hàm để xem kết quả
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 3: Thêm Phần Tử Vào Danh Sách -->
+        <section id="part3" class="section part-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">
+                        <span>III</span>
+                    </div>
+                    <div class="section-title">
+                        <h2><i class="fas fa-plus-circle"></i> Thêm Phần Tử Vào Danh Sách</h2>
+                        <p class="section-description">Các phương thức thêm và quản lý phần tử trong danh sách</p>
+                    </div>
+                </div>
+
+                <!-- Bài Toán Thực Tế -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">3.1</span> Bài Toán Thực Tế</h3>
+                        <div class="subsection-badge problem">Vấn đề</div>
+                    </div>
+                    
+                    <div class="problem-scenario">
+                        <div class="scenario-card">
+                            <div class="scenario-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="scenario-content">
+                                <h4>Quản lý danh sách lớp học động</h4>
+                                <p>Lớp 10A đang có 30 học sinh. Trong học kỳ mới:</p>
+                                
+                                <div class="timeline">
+                                    <div class="timeline-event">
+                                        <div class="event-date">Tuần 1</div>
+                                        <div class="event-content">
+                                            <i class="fas fa-user-graduate"></i>
+                                            <div class="event-details">
+                                                <h6>Học sinh mới chuyển đến</h6>
+                                                <p>Nguyễn Thị Hương - Chuyển từ trường khác</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event">
+                                        <div class="event-date">Tuần 3</div>
+                                        <div class="event-content">
+                                            <i class="fas fa-user-minus"></i>
+                                            <div class="event-details">
+                                                <h6>Học sinh chuyển đi</h6>
+                                                <p>Trần Văn Nam - Chuyển ra nước ngoài</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event">
+                                        <div class="event-date">Tuần 5</div>
+                                        <div class="event-content">
+                                            <i class="fas fa-users"></i>
+                                            <div class="event-details">
+                                                <h6>Nhóm học sinh mới</h6>
+                                                <p>3 học sinh từ lớp 10B chuyển sang</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="timeline-event">
+                                        <div class="event-date">Tuần 8</div>
+                                        <div class="event-content">
+                                            <i class="fas fa-star"></i>
+                                            <div class="event-details">
+                                                <h6>Học sinh xuất sắc</h6>
+                                                <p>Điền học sinh giỏi cấp tỉnh vào đầu danh sách</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="challenge-box">
+                                    <div class="challenge-header">
+                                        <i class="fas fa-tasks"></i>
+                                        <h5>Yêu cầu quản lý:</h5>
+                                    </div>
+                                    <div class="challenge-content">
+                                        <div class="requirement">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Thêm học sinh mới vào cuối danh sách</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-edit"></i>
+                                            <span>Chèn học sinh xuất sắc vào vị trí đầu</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-user-friends"></i>
+                                            <span>Thêm nhóm học sinh từ lớp khác</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-trash"></i>
+                                            <span>Xóa học sinh đã chuyển đi</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-sync-alt"></i>
+                                            <span>Cập nhật danh sách liên tục</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Khái Niệm Thêm Phần Tử -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">3.2</span> Các Phương Thức Thêm Phần Tử</h3>
+                        <div class="subsection-badge concept">Lý thuyết</div>
+                    </div>
+                    
+                    <div class="concept-details">
+                        <div class="methods-comparison">
+                            <h4>Bốn Phương Thức Thêm Phần Tử Chính</h4>
+                            
+                            <div class="comparison-table">
+                                <table class="styled-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Phương thức</th>
+                                            <th>Cú pháp</th>
+                                            <th>Mục đích</th>
+                                            <th>Ví dụ</th>
+                                            <th>Độ phức tạp</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code class="method-code">append()</code></td>
+                                            <td><code>ds.append(x)</code></td>
+                                            <td>Thêm phần tử x vào cuối danh sách</td>
+                                            <td><code>[1,2].append(3) → [1,2,3]</code></td>
+                                            <td><span class="complexity good">O(1)*</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="method-code">insert()</code></td>
+                                            <td><code>ds.insert(i, x)</code></td>
+                                            <td>Chèn phần tử x vào vị trí i</td>
+                                            <td><code>[1,3].insert(1,2) → [1,2,3]</code></td>
+                                            <td><span class="complexity average">O(n)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="method-code">extend()</code></td>
+                                            <td><code>ds.extend(L)</code></td>
+                                            <td>Nối danh sách L vào cuối ds</td>
+                                            <td><code>[1,2].extend([3,4]) → [1,2,3,4]</code></td>
+                                            <td><span class="complexity good">O(k)</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="method-code">+ operator</code></td>
+                                            <td><code>ds1 + ds2</code></td>
+                                            <td>Tạo danh sách mới từ 2 danh sách</td>
+                                            <td><code>[1,2] + [3,4] → [1,2,3,4]</code></td>
+                                            <td><span class="complexity average">O(n+m)</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="table-note">
+                                    <p>*O(1): thời gian hằng số, O(n): tỉ lệ với độ dài danh sách, O(k): tỉ lệ với độ dài danh sách thêm vào</p>
+                                </div>
+                            </div>
+                            
+                            <div class="detailed-explanations">
+                                <div class="explanation-card">
+                                    <div class="explanation-header">
+                                        <div class="explanation-icon">
+                                            <i class="fas fa-arrow-down"></i>
+                                        </div>
+                                        <h5>1. append() - Thêm vào cuối</h5>
+                                    </div>
+                                    <div class="explanation-content">
+                                        <div class="code-example">
+                                            <pre><code class="python"># Khởi tạo danh sách lớp
+lop_10A = ["An", "Bình", "Châu"]
+print(f"Danh sách ban đầu: {lop_10A}")
+
+# Thêm học sinh mới vào cuối
+lop_10A.append("Dũng")
+print(f"Sau append('Dũng'): {lop_10A}")
+
+# Thêm một danh sách như một phần tử
+lop_10A.append(["Em", "Phúc"])
+print(f"Sau append(['Em','Phúc']): {lop_10A}")
+# Kết quả: ['An', 'Bình', 'Châu', 'Dũng', ['Em', 'Phúc']]
+# Lưu ý: append() thêm toàn bộ đối tượng làm một phần tử</code></pre>
+                                        </div>
+                                        <div class="explanation-note">
+                                            <p><strong>Lưu ý:</strong> <code>append()</code> thêm đối tượng nguyên vẹn. Nếu thêm danh sách, nó sẽ trở thành phần tử lồng nhau.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="explanation-card">
+                                    <div class="explanation-header">
+                                        <div class="explanation-icon">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </div>
+                                        <h5>2. insert() - Chèn tại vị trí</h5>
+                                    </div>
+                                    <div class="explanation-content">
+                                        <div class="code-example">
+                                            <pre><code class="python">lop_10A = ["An", "Bình", "Châu", "Dũng"]
+
+# Chèn học sinh mới vào đầu danh sách (vị trí 0)
+lop_10A.insert(0, "Ánh")
+print(f"Sau insert(0, 'Ánh'): {lop_10A}")
+
+# Chèn vào vị trí giữa danh sách
+lop_10A.insert(2, "Minh")
+print(f"Sau insert(2, 'Minh'): {lop_10A}")
+
+# Chèn vào vị trí vượt quá độ dài
+lop_10A.insert(10, "Cuối")  # Tự động chèn vào cuối
+print(f"Sau insert(10, 'Cuối'): {lop_10A}")</code></pre>
+                                        </div>
+                                        <div class="explanation-note">
+                                            <p><strong>Lưu ý:</strong> Nếu chỉ số vượt quá độ dài, <code>insert()</code> sẽ chèn vào cuối. Nếu chỉ số âm, tính từ cuối danh sách.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="explanation-card">
+                                    <div class="explanation-header">
+                                        <div class="explanation-icon">
+                                            <i class="fas fa-expand-arrows-alt"></i>
+                                        </div>
+                                        <h5>3. extend() - Nối danh sách</h5>
+                                    </div>
+                                    <div class="explanation-content">
+                                        <div class="code-example">
+                                            <pre><code class="python"># Danh sách lớp hiện tại
+lop_10A = ["An", "Bình", "Châu"]
+print(f"Danh sách ban đầu: {lop_10A}")
+
+# Nhóm học sinh mới chuyển đến
+hoc_sinh_moi = ["Dũng", "Em", "Phúc"]
+
+# Sử dụng extend() để nối danh sách
+lop_10A.extend(hoc_sinh_moi)
+print(f"Sau extend(['Dũng','Em','Phúc']): {lop_10A}")
+
+# extend() tương đương với:
+# for hs in hoc_sinh_moi:
+#     lop_10A.append(hs)
+
+# So sánh với append()
+lop_10B = ["An", "Bình"]
+lop_10B.append(hoc_sinh_moi)
+print(f"Sau append(hoc_sinh_moi): {lop_10B}")
+# Kết quả: ['An', 'Bình', ['Dũng', 'Em', 'Phúc']]</code></pre>
+                                        </div>
+                                        <div class="explanation-note">
+                                            <p><strong>Khác biệt quan trọng:</strong> <code>extend()</code> thêm từng phần tử, còn <code>append()</code> thêm toàn bộ đối tượng.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Interactive Demo: Add Elements -->
+                        <div class="interactive-demo">
+                            <div class="demo-header">
+                                <h4><i class="fas fa-plus-square"></i> Thực Hành Thêm Phần Tử</h4>
+                                <p>Tương tác với các phương thức thêm phần tử</p>
+                            </div>
+                            <div class="demo-body">
+                                <div class="add-demo-container">
+                                    <div class="demo-controls">
+                                        <div class="control-panel">
+                                            <div class="control-group">
+                                                <label for="addMethod">Chọn phương thức:</label>
+                                                <select id="addMethod" class="form-control">
+                                                    <option value="append">append() - Thêm vào cuối</option>
+                                                    <option value="insert">insert() - Chèn tại vị trí</option>
+                                                    <option value="extend">extend() - Nối danh sách</option>
+                                                    <option value="concat">+ - Nối tạo danh sách mới</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="control-group" id="valueInput">
+                                                <label for="addValue">Giá trị cần thêm:</label>
+                                                <input type="text" id="addValue" class="form-control" 
+                                                       placeholder="Nhập giá trị (dùng , để phân cách nhiều giá trị)">
+                                                <small>Ví dụ: "Minh" hoặc "Huy,Lâm,Phúc"</small>
+                                            </div>
+                                            
+                                            <div class="control-group" id="positionInput" style="display: none;">
+                                                <label for="addPosition">Vị trí chèn:</label>
+                                                <div class="position-controls">
+                                                    <input type="number" id="addPosition" class="form-control" 
+                                                           min="0" value="0">
+                                                    <span class="position-info">(0 = đầu danh sách)</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="control-group" id="secondListInput" style="display: none;">
+                                                <label for="secondList">Danh sách thứ hai:</label>
+                                                <input type="text" id="secondList" class="form-control" 
+                                                       placeholder="Nhập danh sách thứ hai">
+                                                <small>Ví dụ: "X,Y,Z"</small>
+                                            </div>
+                                            
+                                            <div class="button-group">
+                                                <button id="executeAdd" class="btn-demo primary">
+                                                    <i class="fas fa-play"></i> Thực hiện
+                                                </button>
+                                                <button id="resetAdd" class="btn-demo secondary">
+                                                    <i class="fas fa-redo"></i> Reset
+                                                </button>
+                                                <button id="undoAdd" class="btn-demo" disabled>
+                                                    <i class="fas fa-undo"></i> Undo
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="demo-visualization">
+                                        <div class="visual-header">
+                                            <h5>Quá trình thêm phần tử</h5>
+                                            <div class="list-info">
+                                                <span class="info-label">Độ dài:</span>
+                                                <span class="info-value" id="listLength">3</span>
+                                                <span class="info-label"> | Dung lượng:</span>
+                                                <span class="info-value" id="listCapacity">8</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="list-visual" id="listVisual">
+                                            <!-- List visualization will be generated by JS -->
+                                        </div>
+                                        
+                                        <div class="visual-details">
+                                            <div class="detail-box">
+                                                <div class="detail-title">Danh sách hiện tại:</div>
+                                                <div class="detail-content" id="currentListDisplay">
+                                                    ['An', 'Bình', 'Châu']
+                                                </div>
+                                            </div>
+                                            <div class="detail-box">
+                                                <div class="detail-title">Thao tác gần nhất:</div>
+                                                <div class="detail-content" id="lastOperation">
+                                                    Chưa có thao tác nào
+                                                </div>
+                                            </div>
+                                            <div class="detail-box">
+                                                <div class="detail-title">Lịch sử:</div>
+                                                <div class="detail-content">
+                                                    <div class="history-list" id="operationHistory">
+                                                        <!-- History items will be added here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở Rộng và Giải Thích -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">3.3</span> Mở Rộng và Giải Thích</h3>
+                        <div class="subsection-badge advanced">Nâng cao</div>
+                    </div>
+                    
+                    <div class="expansion-content">
+                        <!-- Xóa phần tử -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-minus-circle"></i>
+                                </div>
+                                <h4>Phương Thức Xóa Phần Tử</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <div class="delete-methods">
+                                    <div class="methods-grid">
+                                        <div class="method-card">
+                                            <div class="method-header">
+                                                <h5><code>remove(x)</code></h5>
+                                                <span class="method-tag">Theo giá trị</span>
+                                            </div>
+                                            <div class="method-content">
+                                                <p>Xóa phần tử <strong>đầu tiên</strong> có giá trị x</p>
+                                                <div class="code-snippet">
+                                                    <pre><code class="python">ds = [1, 2, 3, 2, 4]
+ds.remove(2)
+print(ds)  # [1, 3, 2, 4]</code></pre>
+                                                </div>
+                                                <div class="method-warning">
+                                                    <i class="fas fa-exclamation-triangle"></i>
+                                                    <span>Ném ValueError nếu x không tồn tại</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="method-card">
+                                            <div class="method-header">
+                                                <h5><code>pop([i])</code></h5>
+                                                <span class="method-tag">Theo chỉ số</span>
+                                            </div>
+                                            <div class="method-content">
+                                                <p>Xóa và trả về phần tử tại chỉ số i</p>
+                                                <div class="code-snippet">
+                                                    <pre><code class="python">ds = [1, 2, 3, 4]
+x = ds.pop(1)  # x = 2
+print(ds)      # [1, 3, 4]
+y = ds.pop()   # y = 4 (cuối danh sách)
+print(ds)      # [1, 3]</code></pre>
+                                                </div>
+                                                <div class="method-info">
+                                                    <i class="fas fa-info-circle"></i>
+                                                    <span>Nếu không có i, xóa phần tử cuối cùng</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="method-card">
+                                            <div class="method-header">
+                                                <h5><code>clear()</code></h5>
+                                                <span class="method-tag">Xóa toàn bộ</span>
+                                            </div>
+                                            <div class="method-content">
+                                                <p>Xóa tất cả phần tử, để lại danh sách rỗng</p>
+                                                <div class="code-snippet">
+                                                    <pre><code class="python">ds = [1, 2, 3, 4]
+ds.clear()
+print(ds)  # []</code></pre>
+                                                </div>
+                                                <div class="method-info">
+                                                    <i class="fas fa-info-circle"></i>
+                                                    <span>Tương đương với <code>del ds[:]</code></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="method-card">
+                                            <div class="method-header">
+                                                <h5><code>del statement</code></h5>
+                                                <span class="method-tag">Câu lệnh del</span>
+                                            </div>
+                                            <div class="method-content">
+                                                <p>Xóa phần tử hoặc slice bằng câu lệnh del</p>
+                                                <div class="code-snippet">
+                                                    <pre><code class="python">ds = [1, 2, 3, 4, 5]
+del ds[2]      # Xóa phần tử chỉ số 2
+print(ds)      # [1, 2, 4, 5]
+
+del ds[1:3]    # Xóa slice từ 1 đến 3
+print(ds)      # [1, 5]
+
+del ds        # Xóa toàn bộ biến ds</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="delete-demo">
+                                        <div class="demo-title">
+                                            <h5>Thực hành xóa phần tử:</h5>
+                                        </div>
+                                        <div class="demo-container">
+                                            <div class="demo-list">
+                                                <div class="list-title">Danh sách hiện tại:</div>
+                                                <div class="list-items" id="deleteListItems">
+                                                    <!-- Items will be generated by JS -->
+                                                </div>
+                                            </div>
+                                            <div class="demo-controls">
+                                                <div class="control-group">
+                                                    <label for="deleteMethod">Phương thức:</label>
+                                                    <select id="deleteMethod" class="form-control">
+                                                        <option value="remove">remove() - Theo giá trị</option>
+                                                        <option value="pop">pop() - Theo chỉ số</option>
+                                                        <option value="clear">clear() - Xóa toàn bộ</option>
+                                                    </select>
+                                                </div>
+                                                <div class="control-group" id="deleteValueGroup">
+                                                    <label for="deleteValue">Giá trị cần xóa:</label>
+                                                    <input type="text" id="deleteValue" class="form-control" 
+                                                           placeholder="Nhập giá trị">
+                                                </div>
+                                                <div class="control-group" id="deleteIndexGroup" style="display: none;">
+                                                    <label for="deleteIndex">Chỉ số cần xóa:</label>
+                                                    <input type="number" id="deleteIndex" class="form-control" 
+                                                           min="0" max="9" value="0">
+                                                </div>
+                                                <button id="executeDelete" class="btn-demo danger">
+                                                    <i class="fas fa-trash"></i> Thực hiện xóa
+                                                </button>
+                                            </div>
+                                            <div class="demo-result">
+                                                <div id="deleteResult">
+                                                    Kết quả xóa sẽ hiển thị ở đây
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Ứng dụng quản lý học sinh hoàn chỉnh -->
+                        <div class="expansion-card">
+                            <div class="expansion-header">
+                                <div class="expansion-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h4>Ứng Dụng: Hệ Thống Quản Lý Học Sinh</h4>
+                            </div>
+                            <div class="expansion-body">
+                                <div class="student-management">
+                                    <div class="app-header">
+                                        <h5>Quản lý danh sách lớp 10A</h5>
+                                        <p>Thực hành toàn diện các thao tác với danh sách</p>
+                                    </div>
+                                    
+                                    <div class="app-container">
+                                        <div class="app-sidebar">
+                                            <div class="sidebar-section">
+                                                <h6>Thao tác</h6>
+                                                <div class="action-buttons">
+                                                    <button class="btn-action" data-action="add">
+                                                        <i class="fas fa-user-plus"></i>
+                                                        <span>Thêm học sinh</span>
+                                                    </button>
+                                                    <button class="btn-action" data-action="remove">
+                                                        <i class="fas fa-user-minus"></i>
+                                                        <span>Xóa học sinh</span>
+                                                    </button>
+                                                    <button class="btn-action" data-action="insert">
+                                                        <i class="fas fa-arrow-right"></i>
+                                                        <span>Chèn học sinh</span>
+                                                    </button>
+                                                    <button class="btn-action" data-action="sort">
+                                                        <i class="fas fa-sort-alpha-down"></i>
+                                                        <span>Sắp xếp</span>
+                                                    </button>
+                                                    <button class="btn-action" data-action="clear">
+                                                        <i class="fas fa-broom"></i>
+                                                        <span>Xóa toàn bộ</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="sidebar-section">
+                                                <h6>Thống kê</h6>
+                                                <div class="stats">
+                                                    <div class="stat-item">
+                                                        <span class="stat-label">Tổng số:</span>
+                                                        <span class="stat-value" id="totalStudentsCount">5</span>
+                                                    </div>
+                                                    <div class="stat-item">
+                                                        <span class="stat-label">Nam:</span>
+                                                        <span class="stat-value" id="maleCount">3</span>
+                                                    </div>
+                                                    <div class="stat-item">
+                                                        <span class="stat-label">Nữ:</span>
+                                                        <span class="stat-value" id="femaleCount">2</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="app-main">
+                                            <div class="student-list">
+                                                <div class="list-header">
+                                                    <h6>Danh sách học sinh lớp 10A</h6>
+                                                    <div class="list-actions">
+                                                        <input type="text" id="searchStudent" class="form-control" 
+                                                               placeholder="Tìm kiếm học sinh...">
+                                                    </div>
+                                                </div>
+                                                <div class="list-content">
+                                                    <table class="student-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>STT</th>
+                                                                <th>Họ và tên</th>
+                                                                <th>Giới tính</th>
+                                                                <th>Ngày sinh</th>
+                                                                <th>Điểm TB</th>
+                                                                <th>Thao tác</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="studentTableBody">
+                                                            <!-- Student rows will be generated by JS -->
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="student-form" id="studentForm" style="display: none;">
+                                                <div class="form-header">
+                                                    <h6>Thêm học sinh mới</h6>
+                                                    <button class="btn-close" id="closeForm">&times;</button>
+                                                </div>
+                                                <div class="form-body">
+                                                    <div class="form-group">
+                                                        <label for="studentName">Họ và tên:</label>
+                                                        <input type="text" id="studentName" class="form-control" 
+                                                               placeholder="Nhập họ tên học sinh">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="studentGender">Giới tính:</label>
+                                                        <select id="studentGender" class="form-control">
+                                                            <option value="Nam">Nam</option>
+                                                            <option value="Nữ">Nữ</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="studentBirth">Ngày sinh:</label>
+                                                        <input type="date" id="studentBirth" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="studentScore">Điểm trung bình:</label>
+                                                        <input type="number" id="studentScore" class="form-control" 
+                                                               min="0" max="10" step="0.1" value="7.0">
+                                                    </div>
+                                                    <div class="form-actions">
+                                                        <button class="btn-primary" id="saveStudent">
+                                                            <i class="fas fa-save"></i> Lưu thông tin
+                                                        </button>
+                                                        <button class="btn-secondary" id="cancelStudent">
+                                                            <i class="fas fa-times"></i> Hủy bỏ
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="app-code">
+                                        <div class="code-preview">
+                                            <h6>Code quản lý học sinh:</h6>
+                                            <pre><code class="python">class QuanLyHocSinh:
+    def __init__(self):
+        self.danh_sach = []
+    
+    def them_hoc_sinh(self, ten, gioi_tinh, ngay_sinh, diem_tb):
+        """Thêm học sinh mới vào danh sách"""
+        hoc_sinh = {
+            'ten': ten,
+            'gioi_tinh': gioi_tinh,
+            'ngay_sinh': ngay_sinh,
+            'diem_tb': diem_tb
+        }
+        self.danh_sach.append(hoc_sinh)
+        print(f"Đã thêm học sinh: {ten}")
+    
+    def xoa_hoc_sinh(self, ten):
+        """Xóa học sinh theo tên"""
+        for i, hs in enumerate(self.danh_sach):
+            if hs['ten'] == ten:
+                xoa_hs = self.danh_sach.pop(i)
+                print(f"Đã xóa học sinh: {xoa_hs['ten']}")
+                return True
+        print(f"Không tìm thấy học sinh: {ten}")
+        return False
+    
+    def sap_xep_theo_diem(self):
+        """Sắp xếp học sinh theo điểm giảm dần"""
+        self.danh_sach.sort(key=lambda x: x['diem_tb'], reverse=True)
+        print("Đã sắp xếp theo điểm")
+    
+    def thong_ke(self):
+        """Thống kê số liệu lớp học"""
+        tong = len(self.danh_sach)
+        nam = sum(1 for hs in self.danh_sach if hs['gioi_tinh'] == 'Nam')
+        nu = tong - nam
+        diem_tb_lop = sum(hs['diem_tb'] for hs in self.danh_sach) / tong if tong > 0 else 0
+        
+        return {
+            'tong': tong,
+            'nam': nam,
+            'nu': nu,
+            'diem_tb_lop': diem_tb_lop
+        }</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 4: Bài Tập Thực Hành -->
+        <section id="part4" class="section part-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">
+                        <span>IV</span>
+                    </div>
+                    <div class="section-title">
+                        <h2><i class="fas fa-laptop-code"></i> Bài Tập Thực Hành</h2>
+                        <p class="section-description">Áp dụng kiến thức vào giải quyết bài toán thực tế</p>
+                    </div>
+                </div>
+
+                <div class="practice-intro">
+                    <div class="intro-card">
+                        <div class="intro-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="intro-content">
+                            <h3>Luyện Tập Làm Nên Thành Thạo</h3>
+                            <p>Các bài tập được thiết kế từ cơ bản đến nâng cao, giúp củng cố và vận dụng kiến thức về kiểu dữ liệu danh sách.</p>
+                            <div class="difficulty-levels">
+                                <span class="level easy">
+                                    <i class="fas fa-circle"></i> Dễ
+                                </span>
+                                <span class="level medium">
+                                    <i class="fas fa-circle"></i> Trung bình
+                                </span>
+                                <span class="level hard">
+                                    <i class="fas fa-circle"></i> Khó
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bài tập cơ bản -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">4.1</span> Bài Tập Cơ Bản</h3>
+                        <div class="subsection-badge easy">Dễ</div>
+                    </div>
+                    
+                    <div class="exercises-grid">
+                        <!-- Bài tập 1 -->
+                        <div class="exercise-card">
+                            <div class="exercise-header">
+                                <div class="exercise-number">
+                                    <span>1</span>
+                                </div>
+                                <h4>Tính Tổng và Trung Bình</h4>
+                            </div>
+                            <div class="exercise-body">
+                                <div class="exercise-description">
+                                    <p>Cho danh sách điểm số: <code>[7.5, 8.0, 6.5, 9.0, 8.5, 7.0, 9.5, 8.0]</code></p>
+                                    <p>Viết chương trình tính:</p>
+                                    <ul>
+                                        <li>Tổng điểm của cả lớp</li>
+                                        <li>Điểm trung bình của lớp</li>
+                                        <li>Điểm cao nhất và thấp nhất</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="exercise-editor">
+                                    <div class="editor-header">
+                                        <span>Python Code Editor</span>
+                                        <div class="editor-actions">
+                                            <button class="btn-editor" id="runExercise1">
+                                                <i class="fas fa-play"></i> Run
+                                            </button>
+                                            <button class="btn-editor" id="resetExercise1">
+                                                <i class="fas fa-redo"></i> Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="editor-content">
+                                        <textarea id="codeExercise1" spellcheck="false"># Bài 1: Tính tổng và trung bình điểm số
+diem = [7.5, 8.0, 6.5, 9.0, 8.5, 7.0, 9.5, 8.0]
+
+# TODO: Tính tổng điểm
+tong = 0
+for d in diem:
+    tong += d
+
+# TODO: Tính điểm trung bình
+trung_binh = tong / len(diem)
+
+# TODO: Tìm điểm cao nhất và thấp nhất
+# Gợi ý: Sử dụng vòng lặp hoặc hàm max/min
+cao_nhat = max(diem)
+thap_nhat = min(diem)
+
+# In kết quả
+print("=== KẾT QUẢ BÀI 1 ===")
+print(f"Tổng điểm: {tong}")
+print(f"Điểm trung bình: {trung_binh:.2f}")
+print(f"Điểm cao nhất: {cao_nhat}")
+print(f"Điểm thấp nhất: {thap_nhat}")</textarea>
+                                    </div>
+                                    <div class="editor-output" id="outputExercise1">
+                                        <div class="output-header">Output:</div>
+                                        <div class="output-content">
+                                            Kết quả sẽ hiển thị ở đây...
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="exercise-solution">
+                                    <button class="btn-solution" data-target="solution1">
+                                        <i class="fas fa-eye"></i> Xem lời giải mẫu
+                                    </button>
+                                    <div class="solution-content" id="solution1" style="display: none;">
+                                        <pre><code class="python"># Lời giải mẫu cho bài 1
+diem = [7.5, 8.0, 6.5, 9.0, 8.5, 7.0, 9.5, 8.0]
+
+# Cách 1: Dùng vòng lặp
+tong = 0
+cao_nhat = diem[0]
+thap_nhat = diem[0]
+
+for d in diem:
+    tong += d
+    if d > cao_nhat:
+        cao_nhat = d
+    if d < thap_nhat:
+        thap_nhat = d
+
+trung_binh = tong / len(diem)
+
+# Cách 2: Dùng hàm built-in
+tong = sum(diem)
+trung_binh = tong / len(diem)
+cao_nhat = max(diem)
+thap_nhat = min(diem)
+
+print(f"Tổng điểm: {tong}")
+print(f"Điểm trung bình: {trung_binh:.2f}")
+print(f"Điểm cao nhất: {cao_nhat}")
+print(f"Điểm thấp nhất: {thap_nhat}")</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bài tập 2 -->
+                        <div class="exercise-card">
+                            <div class="exercise-header">
+                                <div class="exercise-number">
+                                    <span>2</span>
+                                </div>
+                                <h4>Lọc và Phân Loại</h4>
+                            </div>
+                            <div class="exercise-body">
+                                <div class="exercise-description">
+                                    <p>Cho danh sách học sinh và điểm số tương ứng:</p>
+                                    <pre><code class="python">hoc_sinh = ["An", "Bình", "Châu", "Dũng", "Em", "Phúc", "Giang", "Huy"]
+diem = [8.5, 7.0, 9.0, 6.5, 8.0, 7.5, 5.5, 9.5]</code></pre>
+                                    <p>Yêu cầu:</p>
+                                    <ol>
+                                        <li>In danh sách học sinh có điểm ≥ 8.0</li>
+                                        <li>Tính điểm trung bình của học sinh giỏi (≥ 8.0)</li>
+                                        <li>Đếm số học sinh mỗi loại: Giỏi (≥ 8.0), Khá (6.5-7.9), TB (&lt;6.5)</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="exercise-editor">
+                                    <div class="editor-header">
+                                        <span>Python Code Editor</span>
+                                        <div class="editor-actions">
+                                            <button class="btn-editor" id="runExercise2">
+                                                <i class="fas fa-play"></i> Run
+                                            </button>
+                                            <button class="btn-editor" id="resetExercise2">
+                                                <i class="fas fa-redo"></i> Reset
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="editor-content">
+                                        <textarea id="codeExercise2" spellcheck="false"># Bài 2: Lọc và phân loại học sinh
+hoc_sinh = ["An", "Bình", "Châu", "Dũng", "Em", "Phúc", "Giang", "Huy"]
+diem = [8.5, 7.0, 9.0, 6.5, 8.0, 7.5, 5.5, 9.5]
+
+# TODO: 1. In danh sách học sinh có điểm ≥ 8.0
+print("1. Học sinh giỏi (điểm ≥ 8.0):")
+for i in range(len(hoc_sinh)):
+    if diem[i] >= 8.0:
+        print(f"  - {hoc_sinh[i]}: {diem[i]} điểm")
+
+# TODO: 2. Tính điểm trung bình của học sinh giỏi
+tong_gioi = 0
+dem_gioi = 0
+for d in diem:
+    if d >= 8.0:
+        tong_gioi += d
+        dem_gioi += 1
+if dem_gioi > 0:
+    tb_gioi = tong_gioi / dem_gioi
+else:
+    tb_gioi = 0
+print(f"\n2. Điểm trung bình học sinh giỏi: {tb_gioi:.2f}")
+
+# TODO: 3. Đếm số học sinh mỗi loại
+dem_gioi = dem_kha = dem_tb = 0
+for d in diem:
+    if d >= 8.0:
+        dem_gioi += 1
+    elif d >= 6.5:
+        dem_kha += 1
+    else:
+        dem_tb += 1
+
+print("\n3. Phân loại học sinh:")
+print(f"   Giỏi (≥ 8.0): {dem_gioi} học sinh")
+print(f"   Khá (6.5-7.9): {dem_kha} học sinh")
+print(f"   Trung bình (&lt;6.5): {dem_tb} học sinh")</textarea>
+                                    </div>
+                                    <div class="editor-output" id="outputExercise2">
+                                        <div class="output-header">Output:</div>
+                                        <div class="output-content">
+                                            Kết quả sẽ hiển thị ở đây...
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="exercise-solution">
+                                    <button class="btn-solution" data-target="solution2">
+                                        <i class="fas fa-eye"></i> Xem lời giải mẫu
+                                    </button>
+                                    <div class="solution-content" id="solution2" style="display: none;">
+                                        <pre><code class="python"># Lời giải mẫu cho bài 2
+hoc_sinh = ["An", "Bình", "Châu", "Dũng", "Em", "Phúc", "Giang", "Huy"]
+diem = [8.5, 7.0, 9.0, 6.5, 8.0, 7.5, 5.5, 9.5]
+
+# 1. Danh sách học sinh giỏi
+print("Học sinh giỏi (điểm ≥ 8.0):")
+for ten, d in zip(hoc_sinh, diem):
+    if d >= 8.0:
+        print(f"  - {ten}: {d} điểm")
+
+# 2. Điểm trung bình học sinh giỏi
+diem_gioi = [d for d in diem if d >= 8.0]
+if diem_gioi:
+    tb_gioi = sum(diem_gioi) / len(diem_gioi)
+    print(f"\nĐiểm TB học sinh giỏi: {tb_gioi:.2f}")
+
+# 3. Phân loại học sinh
+dem_gioi = dem_kha = dem_tb = 0
+for d in diem:
+    if d >= 8.0:
+        dem_gioi += 1
+    elif d >= 6.5:
+        dem_kha += 1
+    else:
+        dem_tb += 1
+
+print(f"\nPhân loại:")
+print(f"  Giỏi: {dem_gioi} | Khá: {dem_kha} | TB: {dem_tb}")
+
+# Bonus: Danh sách theo loại
+print("\nDanh sách chi tiết:")
+for i, (ten, d) in enumerate(zip(hoc_sinh, diem), 1):
+    if d >= 8.0:
+        loai = "Giỏi"
+    elif d >= 6.5:
+        loai = "Khá"
+    else:
+        loai = "TB"
+    print(f"{i:2}. {ten:10} {d:5.1f} điểm - {loai}")</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bài tập nâng cao -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">4.2</span> Bài Tập Nâng Cao</h3>
+                        <div class="subsection-badge hard">Khó</div>
+                    </div>
+                    
+                    <div class="exercises-grid">
+                        <!-- Bài tập 3 -->
+                        <div class="exercise-card">
+                            <div class="exercise-header">
+                                <div class="exercise-number">
+                                    <span>3</span>
+                                </div>
+                                <h4>Quản Lý Sản Phẩm</h4>
+                                <div class="exercise-tags">
+                                    <span class="tag"><i class="fas fa-shopping-cart"></i> Thực tế</span>
+                                    <span class="tag"><i class="fas fa-database"></i> Database</span>
+                                </div>
+                            </div>
+                            <div class="exercise-body">
+                                <div class="exercise-description">
+                                    <p>Xây dựng chương trình quản lý sản phẩm với các chức năng:</p>
+                                    <div class="requirements">
+                                        <div class="requirement">
+                                            <i class="fas fa-plus-circle"></i>
+                                            <span>Thêm sản phẩm mới (tên, giá, số lượng)</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-search"></i>
+                                            <span>Tìm kiếm sản phẩm theo tên</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-sort"></i>
+                                            <span>Sắp xếp sản phẩm theo giá</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-chart-bar"></i>
+                                            <span>Thống kê tổng giá trị kho</span>
+                                        </div>
+                                        <div class="requirement">
+                                            <i class="fas fa-trash"></i>
+                                            <span>Xóa sản phẩm hết hàng</span>
+                                        </div>
+                                    </div>
+                                    <p><strong>Cấu trúc dữ liệu:</strong> Mỗi sản phẩm là một dictionary lưu trong list</p>
+                                </div>
+                                
+                                <div class="exercise-editor">
+                                    <div class="editor-header">
+                                        <span>Python Code Editor - Quản lý sản phẩm</span>
+                                        <div class="editor-actions">
+                                            <button class="btn-editor" id="runExercise3">
+                                                <i class="fas fa-play"></i> Run
+                                            </button>
+                                            <button class="btn-editor" id="resetExercise3">
+                                                <i class="fas fa-redo"></i> Reset
+                                            </button>
+                                            <button class="btn-editor" id="testExercise3">
+                                                <i class="fas fa-vial"></i> Test
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="editor-content">
+                                        <textarea id="codeExercise3" spellcheck="false"># Bài 3: Quản lý sản phẩm
+class QuanLySanPham:
+    def __init__(self):
+        # Danh sách sản phẩm, mỗi sản phẩm là một dictionary
+        self.san_pham = [
+            {"ten": "Laptop", "gia": 15000000, "so_luong": 10},
+            {"ten": "Điện thoại", "gia": 8000000, "so_luong": 20},
+            {"ten": "Tablet", "gia": 5000000, "so_luong": 15}
+        ]
+    
+    def them_san_pham(self, ten, gia, so_luong):
+        """Thêm sản phẩm mới vào danh sách"""
+        # TODO: Viết code thêm sản phẩm mới
+        sp_moi = {"ten": ten, "gia": gia, "so_luong": so_luong}
+        self.san_pham.append(sp_moi)
+        print(f"Đã thêm sản phẩm: {ten}")
+    
+    def tim_san_pham(self, ten):
+        """Tìm sản phẩm theo tên"""
+        # TODO: Duyệt danh sách để tìm sản phẩm
+        for sp in self.san_pham:
+            if sp["ten"].lower() == ten.lower():
+                return sp
+        return None
+    
+    def sap_xep_theo_gia(self, giam_dan=False):
+        """Sắp xếp sản phẩm theo giá"""
+        # TODO: Sắp xếp danh sách sản phẩm theo giá
+        self.san_pham.sort(key=lambda x: x["gia"], reverse=giam_dan)
+        print("Đã sắp xếp sản phẩm theo giá")
+    
+    def thong_ke(self):
+        """Thống kê tổng giá trị kho"""
+        # TODO: Tính tổng giá trị kho (giá × số lượng)
+        tong_gia_tri = 0
+        for sp in self.san_pham:
+            tong_gia_tri += sp["gia"] * sp["so_luong"]
+        return tong_gia_tri
+    
+    def xoa_het_hang(self):
+        """Xóa sản phẩm hết hàng (số lượng = 0)"""
+        # TODO: Xóa các sản phẩm có số lượng = 0
+        # Gợi ý: Tạo danh sách mới chỉ chứa sản phẩm còn hàng
+        sp_con_hang = []
+        for sp in self.san_pham:
+            if sp["so_luong"] > 0:
+                sp_con_hang.append(sp)
+        so_sp_da_xoa = len(self.san_pham) - len(sp_con_hang)
+        self.san_pham = sp_con_hang
+        return so_sp_da_xoa
+
+# Chương trình chính
+if __name__ == "__main__":
+    ql = QuanLySanPham()
+    
+    # Test các chức năng
+    print("=== QUẢN LÝ SẢN PHẨM ===")
+    
+    # Thêm sản phẩm mới
+    ql.them_san_pham("Tai nghe", 500000, 30)
+    ql.them_san_pham("Chuột", 300000, 0)  # Hết hàng
+    
+    # Tìm sản phẩm
+    sp = ql.tim_san_pham("Laptop")
+    if sp:
+        print(f"\nTìm thấy: {sp['ten']} - Giá: {sp['gia']:,}đ")
+    
+    # Sắp xếp
+    ql.sap_xep_theo_gia(giam_dan=True)
+    print("\nDanh sách sản phẩm sau khi sắp xếp:")
+    for sp in ql.san_pham:
+        print(f"  - {sp['ten']}: {sp['gia']:,}đ")
+    
+    # Thống kê
+    tong = ql.thong_ke()
+    print(f"\nTổng giá trị kho: {tong:,}đ")
+    
+    # Xóa sản phẩm hết hàng
+    so_sp_xoa = ql.xoa_het_hang()
+    print(f"\nĐã xóa {so_sp_xoa} sản phẩm hết hàng")
+    print(f"Số sản phẩm còn lại: {len(ql.san_pham)}")</textarea>
+                                    </div>
+                                    <div class="editor-output" id="outputExercise3">
+                                        <div class="output-header">Output:</div>
+                                        <div class="output-content">
+                                            Kết quả sẽ hiển thị ở đây...
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="exercise-solution">
+                                    <button class="btn-solution" data-target="solution3">
+                                        <i class="fas fa-eye"></i> Xem lời giải mẫu
+                                    </button>
+                                    <div class="solution-content" id="solution3" style="display: none;">
+                                        <pre><code class="python"># Lời giải mẫu cho bài 3
+class QuanLySanPham:
+    def __init__(self):
+        self.san_pham = [
+            {"ten": "Laptop", "gia": 15000000, "so_luong": 10},
+            {"ten": "Điện thoại", "gia": 8000000, "so_luong": 20},
+            {"ten": "Tablet", "gia": 5000000, "so_luong": 15}
+        ]
+    
+    def them_san_pham(self, ten, gia, so_luong):
+        """Thêm sản phẩm mới vào danh sách"""
+        # Kiểm tra sản phẩm đã tồn tại chưa
+        for sp in self.san_pham:
+            if sp["ten"].lower() == ten.lower():
+                print(f"Sản phẩm '{ten}' đã tồn tại!")
+                return False
+        
+        # Thêm sản phẩm mới
+        sp_moi = {
+            "ten": ten,
+            "gia": gia,
+            "so_luong": so_luong
+        }
+        self.san_pham.append(sp_moi)
+        print(f"✓ Đã thêm sản phẩm: {ten}")
+        return True
+    
+    def tim_san_pham(self, ten):
+        """Tìm sản phẩm theo tên"""
+        for sp in self.san_pham:
+            if sp["ten"].lower() == ten.lower():
+                return sp
+        return None
+    
+    def tim_san_pham_theo_khoang_gia(self, gia_min, gia_max):
+        """Tìm sản phẩm trong khoảng giá"""
+        ket_qua = []
+        for sp in self.san_pham:
+            if gia_min <= sp["gia"] <= gia_max:
+                ket_qua.append(sp)
+        return ket_qua
+    
+    def sap_xep_theo_gia(self, giam_dan=False):
+        """Sắp xếp sản phẩm theo giá"""
+        self.san_pham.sort(key=lambda x: x["gia"], reverse=giam_dan)
+        huong = "giảm dần" if giam_dan else "tăng dần"
+        print(f"✓ Đã sắp xếp sản phẩm theo giá {huong}")
+    
+    def sap_xep_theo_ten(self):
+        """Sắp xếp sản phẩm theo tên"""
+        self.san_pham.sort(key=lambda x: x["ten"].lower())
+        print("✓ Đã sắp xếp sản phẩm theo tên")
+    
+    def thong_ke(self):
+        """Thống kê tổng giá trị kho"""
+        tong_gia_tri = 0
+        tong_so_luong = 0
+        
+        for sp in self.san_pham:
+            tong_gia_tri += sp["gia"] * sp["so_luong"]
+            tong_so_luong += sp["so_luong"]
+        
+        return {
+            "tong_gia_tri": tong_gia_tri,
+            "tong_so_luong": tong_so_luong,
+            "so_loai_sp": len(self.san_pham)
+        }
+    
+    def xoa_het_hang(self):
+        """Xóa sản phẩm hết hàng (số lượng = 0)"""
+        sp_con_hang = []
+        sp_het_hang = []
+        
+        for sp in self.san_pham:
+            if sp["so_luong"] > 0:
+                sp_con_hang.append(sp)
+            else:
+                sp_het_hang.append(sp["ten"])
+        
+        so_sp_da_xoa = len(self.san_pham) - len(sp_con_hang)
+        self.san_pham = sp_con_hang
+        
+        if sp_het_hang:
+            print(f"✓ Đã xóa {so_sp_da_xoa} sản phẩm hết hàng: {', '.join(sp_het_hang)}")
+        
+        return so_sp_da_xoa
+    
+    def hien_thi_danh_sach(self):
+        """Hiển thị danh sách sản phẩm"""
+        if not self.san_pham:
+            print("📭 Danh sách sản phẩm trống")
+            return
+        
+        print("\n" + "="*60)
+        print("DANH SÁCH SẢN PHẨM")
+        print("="*60)
+        print(f"{'STT':3} {'Tên sản phẩm':20} {'Giá':15} {'Số lượng':10} {'Thành tiền':15}")
+        print("-"*60)
+        
+        for i, sp in enumerate(self.san_pham, 1):
+            thanh_tien = sp["gia"] * sp["so_luong"]
+            print(f"{i:3} {sp['ten']:20} {sp['gia']:15,d} {sp['so_luong']:10} {thanh_tien:15,d}")
+        
+        # Hiển thị tổng kết
+        tk = self.thong_ke()
+        print("-"*60)
+        print(f"{'Tổng cộng':48} {tk['tong_so_luong']:10} {tk['tong_gia_tri']:15,d}")
+        print("="*60)</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini Project -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">4.3</span> Mini Project: Todo List</h3>
+                        <div class="subsection-badge project">Project</div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="project-info">
+                                <h4>Ứng dụng Quản lý Công việc (Todo List)</h4>
+                                <p>Xây dựng ứng dụng web đơn giản quản lý công việc hàng ngày sử dụng HTML, CSS và JavaScript.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <div class="project-description">
+                                <h5>Yêu cầu chức năng:</h5>
+                                <div class="features">
+                                    <div class="feature">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <div class="feature-text">
+                                            <strong>Thêm công việc:</strong> Người dùng nhập công việc và thêm vào danh sách
+                                        </div>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <div class="feature-text">
+                                            <strong>Đánh dấu hoàn thành:</strong> Click để đánh dấu công việc đã hoàn thành
+                                        </div>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-trash-alt"></i>
+                                        <div class="feature-text">
+                                            <strong>Xóa công việc:</strong> Xóa công việc khỏi danh sách
+                                        </div>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-filter"></i>
+                                        <div class="feature-text">
+                                            <strong>Lọc công việc:</strong> Hiển thị tất cả/đã hoàn thành/chưa hoàn thành
+                                        </div>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-save"></i>
+                                        <div class="feature-text">
+                                            <strong>Lưu trữ:</strong> Lưu danh sách vào LocalStorage của trình duyệt
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-demo">
+                                <div class="demo-title">
+                                    <h5>Demo ứng dụng:</h5>
+                                </div>
+                                <div class="todo-app-demo">
+                                    <div class="todo-header">
+                                        <h3><i class="fas fa-tasks"></i> My Todo List</h3>
+                                        <div class="todo-stats">
+                                            <span id="todoTotal">Tổng: 0</span>
+                                            <span id="todoCompleted">Hoàn thành: 0</span>
+                                            <span id="todoPending">Chưa xong: 0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="todo-input">
+                                        <input type="text" id="newTodo" placeholder="Thêm công việc mới..." 
+                                               maxlength="100">
+                                        <button id="addTodoBtn">
+                                            <i class="fas fa-plus"></i> Thêm
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="todo-filters">
+                                        <button class="filter-btn active" data-filter="all">
+                                            <i class="fas fa-list"></i> Tất cả
+                                        </button>
+                                        <button class="filter-btn" data-filter="active">
+                                            <i class="fas fa-clock"></i> Chưa xong
+                                        </button>
+                                        <button class="filter-btn" data-filter="completed">
+                                            <i class="fas fa-check-circle"></i> Đã xong
+                                        </button>
+                                        <button class="filter-btn" id="clearCompleted">
+                                            <i class="fas fa-trash"></i> Xóa đã hoàn thành
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="todo-list" id="todoList">
+                                        <!-- Todo items will be added here by JavaScript -->
+                                        <div class="todo-empty">
+                                            <i class="fas fa-clipboard-list"></i>
+                                            <p>Chưa có công việc nào. Hãy thêm công việc đầu tiên!</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="project-code">
+                                <div class="code-tabs">
+                                    <div class="tab-buttons">
+                                        <button class="code-tab active" data-tab="html">HTML</button>
+                                        <button class="code-tab" data-tab="css">CSS</button>
+                                        <button class="code-tab" data-tab="js">JavaScript</button>
+                                    </div>
+                                    <div class="tab-contents">
+                                        <div class="tab-content active" id="html-tab">
+                                            <pre><code class="html">&lt;!-- Cấu trúc HTML cho Todo List --&gt;
+&lt;div class="todo-app"&gt;
+    &lt;div class="todo-header"&gt;
+        &lt;h1&gt;&lt;i class="fas fa-tasks"&gt;&lt;/i&gt; My Todo List&lt;/h1&gt;
+        &lt;div class="todo-stats"&gt;
+            &lt;span id="totalTasks"&gt;Tổng: 0&lt;/span&gt;
+            &lt;span id="completedTasks"&gt;Hoàn thành: 0&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="todo-input"&gt;
+        &lt;input type="text" id="taskInput" placeholder="Thêm công việc mới..."&gt;
+        &lt;button id="addTaskBtn"&gt;
+            &lt;i class="fas fa-plus"&gt;&lt;/i&gt; Thêm
+        &lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="todo-filters"&gt;
+        &lt;button class="filter-btn active" data-filter="all"&gt;Tất cả&lt;/button&gt;
+        &lt;button class="filter-btn" data-filter="active"&gt;Chưa xong&lt;/button&gt;
+        &lt;button class="filter-btn" data-filter="completed"&gt;Đã xong&lt;/button&gt;
+        &lt;button id="clearCompletedBtn"&gt;Xóa đã xong&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;ul class="todo-list" id="taskList"&gt;
+        &lt;!-- Các task sẽ được thêm vào đây --&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                                        </div>
+                                        <div class="tab-content" id="css-tab">
+                                            <pre><code class="css">/* CSS cho Todo List */
+.todo-app {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.todo-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.todo-input {
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.todo-input input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.todo-input input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.todo-input button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.todo-filters {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0 20px 20px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.todo-item.completed {
+    opacity: 0.7;
+    text-decoration: line-through;
+}
+
+.todo-item.completed .task-text {
+    color: #666;
+}</code></pre>
+                                        </div>
+                                        <div class="tab-content" id="js-tab">
+                                            <pre><code class="javascript">// JavaScript cho Todo List
+class TodoList {
+    constructor() {
+        this.tasks = [];
+        this.currentFilter = 'all';
+        this.loadFromLocalStorage();
+        this.init();
+    }
+    
+    init() {
+        // Lấy các phần tử DOM
+        this.taskInput = document.getElementById('taskInput');
+        this.addBtn = document.getElementById('addTaskBtn');
+        this.taskList = document.getElementById('taskList');
+        this.filterBtns = document.querySelectorAll('.filter-btn');
+        this.clearBtn = document.getElementById('clearCompletedBtn');
+        
+        // Gắn sự kiện
+        this.addBtn.addEventListener('click', () => this.addTask());
+        this.taskInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.addTask();
+        });
+        
+        this.filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const filter = e.target.dataset.filter;
+                this.setFilter(filter);
+            });
+        });
+        
+        this.clearBtn.addEventListener('click', () => this.clearCompleted());
+        
+        // Render ban đầu
+        this.render();
+    }
+    
+    addTask() {
+        const text = this.taskInput.value.trim();
+        if (!text) return;
+        
+        const newTask = {
+            id: Date.now(),
+            text: text,
+            completed: false,
+            createdAt: new Date().toISOString()
+        };
+        
+        this.tasks.push(newTask);
+        this.taskInput.value = '';
+        this.saveToLocalStorage();
+        this.render();
+    }
+    
+    toggleTask(id) {
+        const task = this.tasks.find(t => t.id === id);
+        if (task) {
+            task.completed = !task.completed;
+            this.saveToLocalStorage();
+            this.render();
+        }
+    }
+    
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(t => t.id !== id);
+        this.saveToLocalStorage();
+        this.render();
+    }
+    
+    setFilter(filter) {
+        this.currentFilter = filter;
+        this.filterBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.filter === filter);
+        });
+        this.render();
+    }
+    
+    getFilteredTasks() {
+        switch (this.currentFilter) {
+            case 'active':
+                return this.tasks.filter(t => !t.completed);
+            case 'completed':
+                return this.tasks.filter(t => t.completed);
+            default:
+                return this.tasks;
+        }
+    }
+    
+    clearCompleted() {
+        this.tasks = this.tasks.filter(t => !t.completed);
+        this.saveToLocalStorage();
+        this.render();
+    }
+    
+    render() {
+        const filteredTasks = this.getFilteredTasks();
+        
+        // Render danh sách
+        this.taskList.innerHTML = filteredTasks.map(task => `
+            <li class="todo-item ${task.completed ? 'completed' : ''}">
+                <input type="checkbox" 
+                       ${task.completed ? 'checked' : ''}
+                       onchange="todoList.toggleTask($task.id)">
+                <span class="task-text">${task.text}</span>
+                <button class="delete-btn" 
+                        onclick="todoList.deleteTask($task.id)">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </li>
+        `).join('');
+        
+        // Cập nhật thống kê
+        const total = this.tasks.length;
+        const completed = this.tasks.filter(t => t.completed).length;
+        
+        document.getElementById('totalTasks').textContent = `Tổng: ${total}`;
+        document.getElementById('completedTasks').textContent = `Hoàn thành: ${completed}`;
+    }
+    
+    saveToLocalStorage() {
+        localStorage.setItem('todoTasks', JSON.stringify(this.tasks));
+    }
+    
+    loadFromLocalStorage() {
+        const saved = localStorage.getItem('todoTasks');
+        if (saved) {
+            this.tasks = JSON.parse(saved);
+        }
+    }
+}
+
+// Khởi tạo ứng dụng
+const todoList = new TodoList();</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 5: Tổng Kết -->
+        <section id="part5" class="section part-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-number">
+                        <span>V</span>
+                    </div>
+                    <div class="section-title">
+                        <h2><i class="fas fa-chart-bar"></i> Tổng Kết</h2>
+                        <p class="section-description">Khái quát và đánh giá toàn bộ nội dung bài học</p>
+                    </div>
+                </div>
+
+                <!-- Tổng kết kiến thức -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">5.1</span> Tổng Kết Kiến Thức</h3>
+                        <div class="subsection-badge summary">Tổng hợp</div>
+                    </div>
+                    
+                    <div class="knowledge-summary">
+                        <div class="summary-grid">
+                            <!-- Điểm chính -->
+                            <div class="summary-card">
+                                <div class="summary-header">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <h4>Điểm Chính Cần Nhớ</h4>
+                                </div>
+                                <div class="summary-content">
+                                    <ul class="key-points">
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Danh sách (List)</strong> là kiểu dữ liệu có cấu trúc
+                                                <br><small>Lưu trữ nhiều phần tử có thứ tự trong Python</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Cú pháp khai báo:</strong> Sử dụng dấu ngoặc vuông []
+                                                <br><small>Ví dụ: <code>[1, 2, 3]</code> hoặc <code>list()</code></small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Truy cập phần tử:</strong> Qua chỉ số (index)
+                                                <br><small>Bắt đầu từ 0, chỉ số âm đếm từ cuối</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Cắt lát (Slicing):</strong> <code>ds[start:stop:step]</code>
+                                                <br><small>Tạo danh sách con từ danh sách gốc</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Duyệt danh sách:</strong> Dùng vòng lặp for
+                                                <br><small>Có 3 cách: trực tiếp, qua chỉ số, với enumerate()</small>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-check-circle"></i>
+                                            <div>
+                                                <strong>Thêm phần tử:</strong> append(), insert(), extend()
+                                                <br><small>Mỗi phương thức có mục đích và hiệu năng khác nhau</small>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Ứng dụng thực tế -->
+                            <div class="summary-card">
+                                <div class="summary-header">
+                                    <div class="summary-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h4>Ứng Dụng Thực Tế</h4>
+                                </div>
+                                <div class="summary-content">
+                                    <div class="applications">
+                                        <div class="app-item">
+                                            <div class="app-icon">
+                                                <i class="fas fa-school"></i>
+                                            </div>
+                                            <div class="app-content">
+                                                <h5>Quản lý giáo dục</h5>
+                                                <ul>
+                                                    <li>Danh sách học sinh, sinh viên</li>
+                                                    <li>Quản lý điểm số, xếp loại</li>
+                                                    <li>Thời khóa biểu, lịch thi</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="app-item">
+                                            <div class="app-icon">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </div>
+                                            <div class="app-content">
+                                                <h5>Thương mại điện tử</h5>
+                                                <ul>
+                                                    <li>Giỏ hàng sản phẩm</li>
+                                                    <li>Danh sách đơn hàng</li>
+                                                    <li>Quản lý sản phẩm yêu thích</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="app-item">
+                                            <div class="app-icon">
+                                                <i class="fas fa-tasks"></i>
+                                            </div>
+                                            <div class="app-content">
+                                                <h5>Quản lý công việc</h5>
+                                                <ul>
+                                                    <li>To-do list, công việc hàng ngày</li>
+                                                    <li>Quản lý dự án, task</li>
+                                                    <li>Lịch trình, nhắc nhở</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="app-item">
+                                            <div class="app-icon">
+                                                <i class="fas fa-database"></i>
+                                            </div>
+                                            <div class="app-content">
+                                                <h5>Xử lý dữ liệu</h5>
+                                                <ul>
+                                                    <li>Đọc/ghi file dữ liệu</li>
+                                                    <li>Xử lý dữ liệu từ API</li>
+                                                    <li>Phân tích thống kê</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bảng so sánh phương thức -->
+                        <div class="comparison-summary">
+                            <h4>So Sánh Các Phương Thức Quan Trọng</h4>
+                            <div class="comparison-chart">
+                                <table class="styled-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Thao tác</th>
+                                            <th>Phương thức</th>
+                                            <th>Mục đích</th>
+                                            <th>Ví dụ</th>
+                                            <th>Lưu ý</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Thêm</strong></td>
+                                            <td><code>append(x)</code></td>
+                                            <td>Thêm vào cuối</td>
+                                            <td><code>[1,2].append(3)</code></td>
+                                            <td>Hiệu quả nhất</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Chèn</strong></td>
+                                            <td><code>insert(i,x)</code></td>
+                                            <td>Chèn tại vị trí i</td>
+                                            <td><code>[1,3].insert(1,2)</code></td>
+                                            <td>Chậm hơn append</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Xóa</strong></td>
+                                            <td><code>remove(x)</code></td>
+                                            <td>Xóa phần tử x</td>
+                                            <td><code>[1,2,3].remove(2)</code></td>
+                                            <td>Xóa phần tử đầu tiên tìm thấy</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Xóa</strong></td>
+                                            <td><code>pop([i])</code></td>
+                                            <td>Xóa tại vị trí i</td>
+                                            <td><code>[1,2,3].pop(1)</code></td>
+                                            <td>Trả về giá trị bị xóa</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sắp xếp</strong></td>
+                                            <td><code>sort()</code></td>
+                                            <td>Sắp xếp tại chỗ</td>
+                                            <td><code>[3,1,2].sort()</code></td>
+                                            <td>Thay đổi danh sách gốc</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sắp xếp</strong></td>
+                                            <td><code>sorted()</code></td>
+                                            <td>Tạo danh sách mới đã sắp xếp</td>
+                                            <td><code>sorted([3,1,2])</code></td>
+                                            <td>Không thay đổi danh sách gốc</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá và nhận xét -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">5.2</span> Đánh Giá và Nhận Xét</h3>
+                        <div class="subsection-badge evaluation">Đánh giá</div>
+                    </div>
+                    
+                    <div class="evaluation-content">
+                        <div class="evaluation-grid">
+                            <!-- Tầm quan trọng -->
+                            <div class="eval-card">
+                                <div class="eval-header">
+                                    <div class="eval-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <h4>Tầm Quan Trọng</h4>
+                                </div>
+                                <div class="eval-body">
+                                    <div class="progress-stats">
+                                        <div class="progress-item">
+                                            <div class="progress-label">
+                                                <span>Cơ bản trong Python</span>
+                                                <span>95%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 95%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <div class="progress-label">
+                                                <span>Ứng dụng thực tế</span>
+                                                <span>90%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <div class="progress-label">
+                                                <span>Nền tảng cho cấu trúc khác</span>
+                                                <span>85%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 85%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="progress-item">
+                                            <div class="progress-label">
+                                                <span>Tần suất sử dụng</span>
+                                                <span>98%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" style="width: 98%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eval-conclusion">
+                                        <p><strong>Kết luận:</strong> Kiểu dữ liệu danh sách là một trong những kiến thức <strong>quan trọng nhất</strong> và <strong>được sử dụng nhiều nhất</strong> trong lập trình Python.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Khó khăn thường gặp -->
+                            <div class="eval-card">
+                                <div class="eval-header">
+                                    <div class="eval-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <h4>Khó Khăn Thường Gặp</h4>
+                                </div>
+                                <div class="eval-body">
+                                    <div class="difficulties">
+                                        <div class="difficulty-item">
+                                            <div class="diff-icon">
+                                                <i class="fas fa-bug"></i>
+                                            </div>
+                                            <div class="diff-content">
+                                                <h5>Lỗi IndexError</h5>
+                                                <p>Truy cập chỉ số ngoài phạm vi danh sách</p>
+                                                <div class="solution">
+                                                    <strong>Giải pháp:</strong> Luôn kiểm tra <code>0 ≤ index < len(ds)</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="difficulty-item">
+                                            <div class="diff-icon">
+                                                <i class="fas fa-copy"></i>
+                                            </div>
+                                            <div class="diff-content">
+                                                <h5>Sao chép nông (Shallow Copy)</h5>
+                                                <p>Chỉ sao chép lớp ngoài, phần tử lồng nhau dùng chung tham chiếu</p>
+                                                <div class="solution">
+                                                    <strong>Giải pháp:</strong> Dùng <code>copy.deepcopy()</code> cho danh sách lồng
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="difficulty-item">
+                                            <div class="diff-icon">
+                                                <i class="fas fa-sync-alt"></i>
+                                            </div>
+                                            <div class="diff-content">
+                                                <h5>Xóa trong khi duyệt</h5>
+                                                <p>Chỉ số thay đổi khi xóa phần tử trong vòng lặp</p>
+                                                <div class="solution">
+                                                    <strong>Giải pháp:</strong> Duyệt ngược hoặc tạo danh sách mới
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="difficulty-item">
+                                            <div class="diff-icon">
+                                                <i class="fas fa-exchange-alt"></i>
+                                            </div>
+                                            <div class="diff-content">
+                                                <h5>Nhầm lẫn append và extend</h5>
+                                                <p>append() thêm toàn bộ đối tượng, extend() thêm từng phần tử</p>
+                                                <div class="solution">
+                                                    <strong>Giải pháp:</strong> Phân biệt rõ mục đích của từng phương thức
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bài học rút ra -->
+                        <div class="lessons-learned">
+                            <div class="lessons-header">
+                                <h4><i class="fas fa-graduation-cap"></i> Bài Học Rút Ra</h4>
+                            </div>
+                            <div class="lessons-content">
+                                <div class="lesson-item">
+                                    <div class="lesson-number">01</div>
+                                    <div class="lesson-text">
+                                        <h5>Hiểu bản chất trước khi sử dụng</h5>
+                                        <p>Danh sách là mutable, ordered - hiểu rõ đặc điểm này giúp sử dụng đúng cách và tránh lỗi.</p>
+                                    </div>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-number">02</div>
+                                    <div class="lesson-text">
+                                        <h5>Chọn phương thức phù hợp</h5>
+                                        <p>Mỗi phương thức có mục đích và hiệu năng riêng. append() cho thêm cuối, insert() cho chèn giữa.</p>
+                                    </div>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-number">03</div>
+                                    <div class="lesson-text">
+                                        <h5>Thực hành là chìa khóa</h5>
+                                        <p>Chỉ thông qua thực hành và giải bài tập mới có thể nắm vững và vận dụng linh hoạt kiến thức.</p>
+                                    </div>
+                                </div>
+                                <div class="lesson-item">
+                                    <div class="lesson-number">04</div>
+                                    <div class="lesson-text">
+                                        <h5>Ứng dụng vào thực tế</h5>
+                                        <p>Danh sách có ứng dụng rộng rãi trong thực tế - từ quản lý học sinh đến xây dựng ứng dụng web.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kết luận cuối cùng -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">5.3</span> Kết Luận</h3>
+                        <div class="subsection-badge conclusion">Kết luận</div>
+                    </div>
+                    
+                    <div class="final-conclusion">
+                        <div class="conclusion-card">
+                            <div class="conclusion-header">
+                                <div class="conclusion-icon">
+                                    <i class="fas fa-flag-checkered"></i>
+                                </div>
+                                <h4>Hoàn Thành Bài Học</h4>
+                            </div>
+                            <div class="conclusion-body">
+                                <div class="achievements">
+                                    <h5>Thành Tựu Đạt Được:</h5>
+                                    <div class="achievement-list">
+                                        <div class="achievement-item">
+                                            <div class="achievement-check">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="achievement-text">
+                                                <strong>Hiểu sâu</strong> về kiểu dữ liệu danh sách trong Python
+                                            </div>
+                                        </div>
+                                        <div class="achievement-item">
+                                            <div class="achievement-check">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="achievement-text">
+                                                <strong>Thành thạo</strong> các thao tác cơ bản: thêm, xóa, duyệt, truy cập
+                                            </div>
+                                        </div>
+                                        <div class="achievement-item">
+                                            <div class="achievement-check">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="achievement-text">
+                                                <strong>Áp dụng</strong> kiến thức vào giải quyết bài toán thực tế
+                                            </div>
+                                        </div>
+                                        <div class="achievement-item">
+                                            <div class="achievement-check">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="achievement-text">
+                                                <strong>Xây dựng</strong> được ứng dụng nhỏ sử dụng danh sách
+                                            </div>
+                                        </div>
+                                        <div class="achievement-item">
+                                            <div class="achievement-check">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="achievement-text">
+                                                <strong>Phân tích</strong> và đánh giá được các phương thức khác nhau
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="next-steps">
+                                    <h5>Hướng Phát Triển Tiếp Theo:</h5>
+                                    <div class="steps-grid">
+                                        <div class="step-card">
+                                            <div class="step-icon">
+                                                <i class="fas fa-book"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>Bài 23: Kiểu dữ liệu từ điển</h6>
+                                                <p>Tìm hiểu về dictionary - cấu trúc dữ liệu key-value mạnh mẽ</p>
+                                            </div>
+                                        </div>
+                                        <div class="step-card">
+                                            <div class="step-icon">
+                                                <i class="fas fa-project-diagram"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>Cấu trúc dữ liệu nâng cao</h6>
+                                                <p>Stack, Queue, Tree - các cấu trúc phức tạp hơn</p>
+                                            </div>
+                                        </div>
+                                        <div class="step-card">
+                                            <div class="step-icon">
+                                                <i class="fas fa-chart-line"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>Thuật toán với danh sách</h6>
+                                                <p>Tìm kiếm, sắp xếp, xử lý dữ liệu nâng cao</p>
+                                            </div>
+                                        </div>
+                                        <div class="step-card">
+                                            <div class="step-icon">
+                                                <i class="fas fa-laptop-code"></i>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6>Dự án thực tế</h6>
+                                                <p>Xây dựng ứng dụng hoàn chỉnh sử dụng danh sách</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="final-message">
+                                    <div class="message-icon">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <div class="message-content">
+                                        <p><strong>Kiểu dữ liệu danh sách không chỉ là một kiến thức cơ bản, mà là nền tảng cho mọi ứng dụng Python phức tạp.</strong> Thông qua bài học này, bạn đã trang bị cho mình một công cụ mạnh mẽ để giải quyết các vấn đề lập trình thực tế. Hãy tiếp tục thực hành và ứng dụng vào các dự án của riêng bạn!</p>
+                                        <div class="signature">
+                                            <p>Nhóm thực hiện - Bài 22: Kiểu Dữ Liệu Danh Sách</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz tổng hợp -->
+                <div class="subsection">
+                    <div class="subsection-header">
+                        <h3><span class="subsection-number">5.4</span> Quiz Tổng Hợp</h3>
+                        <div class="subsection-badge quiz">Đánh giá</div>
+                    </div>
+                    
+                    <div class="quiz-container">
+                        <div class="quiz-header">
+                            <h4>Kiểm Tra Kiến Thức Cuối Bài</h4>
+                            <p>Hoàn thành 10 câu hỏi để đánh giá mức độ hiểu bài</p>
+                        </div>
+                        
+                        <div class="quiz-progress">
+                            <div class="progress-info">
+                                <span id="currentQuestion">Câu 1/10</span>
+                                <span id="quizScore">Điểm: 0/10</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quizProgress" style="width: 10%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-body">
+                            <div class="question-container" id="questionContainer">
+                                <!-- Questions will be loaded by JavaScript -->
+                            </div>
+                            
+                            <div class="quiz-controls">
+                                <button id="prevQuestion" class="btn-quiz" disabled>
+                                    <i class="fas fa-arrow-left"></i> Câu trước
+                                </button>
+                                <button id="nextQuestion" class="btn-quiz">
+                                    Câu tiếp theo <i class="fas fa-arrow-right"></i>
+                                </button>
+                                <button id="submitQuiz" class="btn-quiz primary" style="display: none;">
+                                    <i class="fas fa-paper-plane"></i> Nộp bài
+                                </button>
+                                <button id="restartQuiz" class="btn-quiz secondary">
+                                    <i class="fas fa-redo"></i> Làm lại
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-results" id="quizResults" style="display: none;">
+                            <!-- Results will be shown here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <div class="logo-text">
+                            <span class="logo-title">BÀI 22</span>
+                            <span class="logo-subtitle">Kiểu Dữ Liệu Danh Sách</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">
+                        Thuyết trình bằng Web tương tác thay vì slide truyền thống
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h5>Nội dung</h5>
+                        <ul>
+                            <li><a href="#part1"><i class="fas fa-layer-group"></i> I. Kiểu Danh Sách</a></li>
+                            <li><a href="#part2"><i class="fas fa-sitemap"></i> II. Duyệt Phần Tử</a></li>
+                            <li><a href="#part3"><i class="fas fa-plus-circle"></i> III. Thêm Phần Tử</a></li>
+                            <li><a href="#part4"><i class="fas fa-laptop-code"></i> IV. Thực Hành</a></li>
+                            <li><a href="#part5"><i class="fas fa-chart-bar"></i> V. Tổng Kết</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h5>Tài nguyên</h5>
+                        <ul>
+                            <li><a href="#" id="downloadPDF"><i class="fas fa-file-pdf"></i> Tải PDF</a></li>
+                            <li><a href="#" id="downloadCode"><i class="fas fa-code"></i> Tải mã nguồn</a></li>
+                            <li><a href="#"><i class="fas fa-book"></i> Tài liệu tham khảo</a></li>
+                            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h5>Liên hệ</h5>
+                        <div class="team-contact">
+                            <div class="contact-item">
+                                <i class="fas fa-user"></i>
+                                <span>Trần Huy Vũ (Trưởng nhóm)</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-users"></i>
+                                <span>Cao Chí Lâm, Bùi Hồng Phúc, Lê Quang Minh</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-book"></i>
+                                <span>SGK Tin học 10 - Kết nối tri thức</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 - Bài thuyết trình Bài 22: Kiểu Dữ Liệu Danh Sách</p>
+                    <p>Dựa trên sách giáo khoa Tin học 10 - Bộ Kết nối tri thức với cuộc sống</p>
+                </div>
+                <div class="footer-actions">
+                    <button class="btn-footer" id="backToTop">
+                        <i class="fas fa-arrow-up"></i> Về đầu trang
+                    </button>
+                    <button class="btn-footer" id="sharePage">
+                        <i class="fas fa-share-alt"></i> Chia sẻ
+                    </button>
+                    <button class="btn-footer" id="fullscreenToggle">
+                        <i class="fas fa-expand"></i> Toàn màn hình
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="floatingBackToTop" class="floating-btn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
